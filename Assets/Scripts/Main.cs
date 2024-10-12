@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         GameObject Canvas = GameObject.Find("Canvas");
