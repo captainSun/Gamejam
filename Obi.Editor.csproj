@@ -12,11 +12,11 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{74fe67a6-fc2b-2992-a52f-d4e0d0b81401}</ProjectGuid>
+    <ProjectGuid>{9a83f1a8-269c-2f89-8bfe-ea7f2e671fca}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
+    <AssemblyName>Obi.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -25,8 +25,8 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\Bin\Debug\Assembly-CSharp-Editor-firstpass\</OutputPath>
-    <DefineConstants>UNITY_2021_3_18;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_IG;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;THIRD_PERSON_CONTROLLER;ULTIMATE_CHARACTER_CONTROLLER_UNIVERSALRP;TEXTMESH_PRO_PRESENT;DOTWEEN;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <OutputPath>Temp\Bin\Debug\Obi.Editor\</OutputPath>
+    <DefineConstants>UNITY_2021_3_18;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_IG;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;THIRD_PERSON_CONTROLLER;ULTIMATE_CHARACTER_CONTROLLER_UNIVERSALRP;TEXTMESH_PRO_PRESENT;DOTWEEN;OBI_COLLECTIONS;OBI_BURST;OBI_MATHEMATICS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -41,13 +41,111 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\MFPP\Scripts\Editor\FootstepAssetEditor.cs" />
-     <Compile Include="Assets\Plugins\MFPP\Scripts\Editor\FootstepOverrideEditor.cs" />
-     <Compile Include="Assets\Plugins\MFPP\Scripts\Editor\BaseEditor.cs" />
-     <Compile Include="Assets\Plugins\MFPP\Scripts\Editor\PlayerEditor.cs" />
-     <Folder Include="Assets\Plugins\DOTween\Editor" />
-     <Folder Include="Assets\Plugins\DOTween\Editor\Imgs" />
-     <Folder Include="Assets\Plugins\MFPP\Scripts\Editor" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Constraints\ObiConstraintParametersDrawer.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\ObiAboutWindow.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeParticles.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\IgnoredBoneDrawer.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRopeExtrudedRendererEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeMesh.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiPathHandles.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRopeCursorEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Utils\ObiFoamGeneratorEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiFloatPaintBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiParticleSelectionEditorTool.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiIntPaintBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Utils\ObiRaycastHit.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\BaseTypes\ObiBlueprintFloatProperty.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiSelectBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\ObiParticleSelection.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiMasterSlavePaintBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\BaseTypes\ObiBlueprintMaskProperty.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintRadius.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiPaintBrushEditorTool.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Rendering\ObiParticleRendererEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintColor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\ObiRaycastBrush.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiPathEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintFilterMask.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintFilterCategory.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\ObiActorBlueprintEditorStage.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeDistanceConstraints.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\ObiScreenSpaceBrush.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiBlueprintEditorTool.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRopeChainRendererEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\ObiActorBlueprintEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\ObiBrushBase.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeShapeMatchingConstraints.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiFloatAddBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\ObiSettingsProvider.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Collisions\ObiDistanceFieldEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiColorPaintBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\ObiBrushMirrorSettings.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\BonePropertyCurveDrawer.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\BaseTypes\ObiBlueprintProperty.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Solver\ObiSolverEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeBendConstraints.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiFloatCopyBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\ObiMeshBasedActorBlueprintEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Utils\PreviewHelpers.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\IObiPropertyEditableProvider.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiDraggableIcon.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiColorSmoothBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRopeMeshRendererEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintMass.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Utils\BooleanPreference.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRodEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintSelected.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\ObiMeshUtils.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\BaseTypes\ObiBlueprintBoolProperty.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\BaseTypes\ObiBlueprintIntProperty.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Collisions\ObiColliderEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\ObiParticleEditorDrawing.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Utils\ObiParticleAttachmentEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Utils\ObiEditorUtils.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiBoneEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeAerodynamicConstraints.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\BaseTypes\ObiBlueprintColorProperty.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRopeLineRendererEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiPathSmootherEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeTetherConstraints.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\Blueprints\ObiRopeBaseBlueprintEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiFloatSmoothBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiTethersTool.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRopeEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Collisions\ObiForceZoneEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes\IObiBrushMode.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiPropertyTextureEditorTool.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\RopeAndRod\ObiRopeSectionEditor.cs" />
+     <Compile Include="Assets\Plugins\Obi\Editor\ObiStitcherEditor.cs" />
+     <Folder Include="Assets\Plugins\Obi\Editor\RopeAndRod" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Rendering" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\EditorLineShader.shader" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\PropertyGradientMaterial.shader" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\EditorParticle.shader" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\UVSpaceColor.shader" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\VoxelMaterial.shader" />
+     <Folder Include="Assets\Plugins\Obi\Editor\RopeAndRod\Blueprints" />
+     <Folder Include="Assets\Plugins\Obi\Editor" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\DistanceFieldPreview.shader" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Collisions" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\TopologyBorders.shader" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Utils" />
+     <None Include="Assets\Plugins\Obi\Editor\Obi.Editor.asmdef" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Resources" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Solver" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Resources\Icons" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\PaddingShader.shader" />
+     <None Include="Assets\Plugins\Obi\Editor\Resources\EditorParticleShader.shader" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Blueprints" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Blueprints\BlueprintEditorTools" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties\BaseTypes" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Blueprints\RenderModes" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Brushes\BrushModes" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Constraints" />
+     <Folder Include="Assets\Plugins\Obi\Editor\Common\Blueprints\Properties" />
      <Reference Include="UnityEngine">
      <HintPath>D:\Unity\2021.3.18f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -738,172 +836,23 @@
      <Reference Include="System.Xml.XPath.XDocument">
      <HintPath>D:\Unity\2021.3.18f1c1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
+     <Reference Include="UnityEditor.UI">
+     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEditor.TestRunner">
      <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.TestRunner">
      <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VSCode.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Searcher.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.UI">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.SpatialTracking">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Cinemachine">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Collections.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="com.unity.cinemachine.editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Collections">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Jobs">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Jobs.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.SpatialTracking">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State">
-     <HintPath>D:\GitProject\Gamejam\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{f1c6acba-434a-d0d4-eb47-039314fc0003}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="Obi.csproj">
       <Project>{a570f30f-2086-6ec2-2497-38f09014efc8}</Project>
       <Name>Obi</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.Editor.csproj">
-      <Project>{9a83f1a8-269c-2f89-8bfe-ea7f2e671fca}</Project>
-      <Name>Obi.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
