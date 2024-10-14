@@ -19,11 +19,11 @@ public class PeopleMoveController : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal"); //A D 左右
         float vertical = Input.GetAxis("Vertical"); //W S 上 下
-        if (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.UpArrow) | Input.GetKey(KeyCode.DownArrow))
         {
             _rigidbody.velocity = Vector3.forward * vertical * speed;
         }
-        if (Input.GetKey(KeyCode.A)|Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow)|Input.GetKey(KeyCode.LeftArrow))
         {
             _rigidbody.velocity = Vector3.right * horizontal * speed;
         }   
