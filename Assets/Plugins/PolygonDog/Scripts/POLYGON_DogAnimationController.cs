@@ -114,6 +114,8 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         dogAnim = GetComponent<Animator>(); // Get the animation component
+        dogAnim.applyRootMotion = false;
+
         currentSpeed = 0.0f;
         DogNewTypes = new string[]
         {
@@ -291,6 +293,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (runPressed)
         {
+            dogAnim.applyRootMotion = true;
             currentSpeed = maxRun;
         }
         if (!runPressed)
@@ -299,15 +302,18 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (walkPressed && (w_movement < currentSpeed)) // If walking
         {
+            dogAnim.applyRootMotion = true;
             w_movement += Time.deltaTime * acceleration;
         }
         if (walkPressed && !runPressed && w_movement > currentSpeed) // Slow down
         {
+            dogAnim.applyRootMotion = true;
             w_movement -= Time.deltaTime * decelleration;
 
         }
         if (!walkPressed && w_movement > 0.0f) // If no longer walking
         {
+            dogAnim.applyRootMotion = true;
             w_movement -= Time.deltaTime * decelleration;
         }
         if (leftTurn)
@@ -528,6 +534,8 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             isGrounded = false;
             print("没击中");
+            dogAnim.applyRootMotion = false;
+
         }
     }
 }
