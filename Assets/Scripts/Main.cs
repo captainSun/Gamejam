@@ -12,7 +12,6 @@ public class Main : MonoBehaviour
         Object uiPrefab = ResourceMgr.LoadResAsset("UIImage",AssetsEnum.Prefab);
         GameObject UIImage = Instantiate(uiPrefab, Canvas.transform) as GameObject;
         UIImage.GetComponent<Image>().sprite = ResourceMgr.LoadResAsset<Sprite>("equip_1", AssetsEnum.Texture);
-
         UIImage.transform.DOScale(1.2f, 0.25f).OnComplete(() =>
         {
             UIImage.transform.DOScale(1f, 0.25f);
