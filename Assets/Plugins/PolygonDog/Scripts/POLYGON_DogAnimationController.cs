@@ -9,7 +9,6 @@
  * 
  */
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 public class POLYGON_DogAnimationController : MonoBehaviour
 {
@@ -103,19 +102,9 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     private Vector3 newSpawn = new Vector3();
     public Transform fxTransform;
     public Transform fxTail;
-
-    //添加物理效果
-    Rigidbody rb;
-    private bool isGrounded = true;
-    private bool isJumping = false;
-    public float jumpForce = 5f;
-
     void Start() // On start store dogKeyCodes
     {
-        rb = GetComponent<Rigidbody>();
         dogAnim = GetComponent<Animator>(); // Get the animation component
-        dogAnim.applyRootMotion = false;
-
         currentSpeed = 0.0f;
         DogNewTypes = new string[]
         {
@@ -220,8 +209,6 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         newSpawn = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
     }
-
-    //定义了一个协程用来执行不同动画状态
     IEnumerator DogActions(int actionType) // Dog action coroutine
     {
         dogActionEnabled = true; // Enable the dog animation flag
@@ -293,7 +280,6 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (runPressed)
         {
-            dogAnim.applyRootMotion = true;
             currentSpeed = maxRun;
         }
         if (!runPressed)
@@ -302,18 +288,15 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (walkPressed && (w_movement < currentSpeed)) // If walking
         {
-            dogAnim.applyRootMotion = true;
             w_movement += Time.deltaTime * acceleration;
         }
         if (walkPressed && !runPressed && w_movement > currentSpeed) // Slow down
         {
-            dogAnim.applyRootMotion = true;
             w_movement -= Time.deltaTime * decelleration;
 
         }
         if (!walkPressed && w_movement > 0.0f) // If no longer walking
         {
-            dogAnim.applyRootMotion = true;
             w_movement -= Time.deltaTime * decelleration;
         }
         if (leftTurn)
@@ -358,10 +341,10 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             StartCoroutine(DogActions(Random.Range(1, 13)));
         }
-        //if (jumpPressed)
-        //{
-        //    dogAnim.SetTrigger("Jump_tr");
-        //}
+        if (jumpPressed)
+        {
+            dogAnim.SetTrigger("Jump_tr");
+        }
         if (sitPressed) // Sit
         {
             if (Sit_b == false)
@@ -485,57 +468,6 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             StartCoroutine(DogActions(13));
         }
         dogAnim.SetTrigger("Blink_tr"); // Blink will continue unless asleep or dead
-        //目前的移动是由动画全权控制，程序里只是对动画进行了倍速播放，以让其实现加速效果
         dogAnim.SetFloat("Movement_f", w_movement); // Set movement speed for all required parameters
-
-        //在update的最后再加上物理效果施加在移动上
-        this.HandleJump();
-        this.CheckGrounded();
-    }
-    void HandleJump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            dogAnim.applyRootMotion = false;
-            print("按下了跳跃");
-            isGrounded = false;
-            isJumping = true;
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-            dogAnim.SetTrigger("Jump_tr");
-
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        rb.AddForce(Physics.gravity * rb.mass);
-    }
-
-    void CheckGrounded()
-    {
-        // 使用射线检测地面
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f))
-        {
-            if (hit.collider != null)
-            {
-                if (!isGrounded)
-                {
-                    isGrounded = true;
-                    isJumping = false;
-                    rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // 当接触地面时，设置y轴速度为0
-                    print("落到地面上了");
-                    dogAnim.applyRootMotion = true;
-                }
-               
-            }
-        }
-        else
-        {
-            isGrounded = false;
-            print("没击中");
-            dogAnim.applyRootMotion = false;
-
-        }
     }
 }
