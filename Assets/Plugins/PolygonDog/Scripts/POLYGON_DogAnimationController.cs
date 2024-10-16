@@ -1,4 +1,4 @@
-﻿/*
+﻿ /*
  * POLYGON DOG ANIMATION SCRIPT
  * DESCRIPTION: This script demonstrates the range of animations and Prefabs included in 
  * Polygon Dog which can be customized for the users preference. Please attach this to the
@@ -102,9 +102,23 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     private Vector3 newSpawn = new Vector3();
     public Transform fxTransform;
     public Transform fxTail;
+
+    public float jumpForce = 10f;
+    private Rigidbody rb;
+    private bool isGrounded = true;
+    private MeshCollider dogCollider;
     void Start() // On start store dogKeyCodes
     {
         dogAnim = GetComponent<Animator>(); // Get the animation component
+        rb = GetComponent<Rigidbody>();
+        dogCollider = GetComponent<MeshCollider>();
+
+        if (rb!=null)
+        {
+            rb.isKinematic = false;
+            rb.interpolation = RigidbodyInterpolation.Extrapolate;  // 平滑效果
+        }
+        
         currentSpeed = 0.0f;
         DogNewTypes = new string[]
         {
@@ -341,10 +355,10 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             StartCoroutine(DogActions(Random.Range(1, 13)));
         }
-        if (jumpPressed)
-        {
-            dogAnim.SetTrigger("Jump_tr");
-        }
+        //if (jumpPressed)
+        //{
+        //    dogAnim.SetTrigger("Jump_tr");
+        //}
         if (sitPressed) // Sit
         {
             if (Sit_b == false)
@@ -467,7 +481,39 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             StartCoroutine(DogActions(13));
         }
+
         dogAnim.SetTrigger("Blink_tr"); // Blink will continue unless asleep or dead
         dogAnim.SetFloat("Movement_f", w_movement); // Set movement speed for all required parameters
+
+        AddjustToGroundHeight();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this.Jump();
+        }
+
     }
+
+    private void Jump() { 
+        dogAnim.applyRootMotion = false;
+        dogAnim.SetTrigger("Jump_tr");
+        rb.AddForce(Vector3.up * jumpForce , ForceMode.Impulse);
+    }
+
+    private void AddjustToGroundHeight()
+    {
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.down, out hit, 1.5f))
+        {
+            Vector3 targetPosition = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
+            dogAnim.applyRootMotion = true;
+
+        }
+    }
+       
+
+    
+
 }
