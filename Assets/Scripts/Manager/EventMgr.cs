@@ -4,28 +4,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
+/// <summary>
+/// 事件数据定义
+/// </summary>
 public struct EventData
 {
     public string id;
     public string key;
     public int index;
     public Delegate action;
-}
-
-public enum Sticky
-{
-    /// <summary>
-    /// 非粘性通知
-    /// </summary>
-    None,
-    /// <summary>
-    /// 粘性通知
-    /// </summary>
-    Sticky,
-    /// <summary>
-    /// 粘性通知队列
-    /// </summary>
-    StickyArray
 }
 
 /// <summary>
@@ -44,15 +31,10 @@ public class EventMgr
     private static Dictionary<string, Dictionary<int, EventData>> _events = new();
 
     /// <summary>
-    /// 粘性通知字典
-    /// </summary>
-    private static Dictionary<string, List<Action>> _stickyNotify = new();
-
-    /// <summary>
     /// 事件索引
     /// </summary>
     private static int _eventIndex = 0;
-
+    
     /// <summary>
     /// 添加无参事件监听
     /// </summary>
@@ -60,7 +42,7 @@ public class EventMgr
     /// <param name="key">事件名</param>
     /// <param name="evt">事件函数</param>
     /// <returns></returns>
-    public static EventData AddEvent(string id, string key, Action evt)
+    public static EventData AddEvent(string key, Action evt, string id = "defaultNodeId")
     {
         int index = _eventIndex++;
 
@@ -85,18 +67,6 @@ public class EventMgr
         }
 
         _nodeNav[id].Add((key, index));
-
-        _stickyNotify.TryGetValue(key, out var stickies);
-
-        if (stickies != null)
-        {
-            foreach (var sticky in stickies)
-            {
-                sticky.Invoke();
-            }
-
-            _stickyNotify.Remove(key);
-        }
 
         return eventData;
     }
@@ -109,7 +79,7 @@ public class EventMgr
     /// <param name="evt">事件函数</param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static EventData AddEvent<T>(string id, string key, Action<T> evt)
+    public static EventData AddEvent<T>(string key, Action<T> evt, string id = "defaultNodeId")
     {
         int index = _eventIndex++;
 
@@ -135,18 +105,6 @@ public class EventMgr
 
         _nodeNav[id].Add((key, index));
 
-        _stickyNotify.TryGetValue(key, out var stickies);
-
-        if (stickies != null)
-        {
-            foreach (var sticky in stickies)
-            {
-                sticky.Invoke();
-            }
-
-            _stickyNotify.Remove(key);
-        }
-
         return eventData;
     }
 
@@ -154,8 +112,7 @@ public class EventMgr
     /// 发送无参事件
     /// </summary>
     /// <param name="key">事件名</param>
-    /// <param name="sticky">粘性通知类型</param>
-    public static void SendEvent(string key, Sticky sticky = Sticky.None)
+    public static void SendEvent(string key)
     {
         _events.TryGetValue(key, out var arr);
 
@@ -177,37 +134,9 @@ public class EventMgr
         }
         else
         {
-            if (sticky != Sticky.None)
-            {
-                if (!_stickyNotify.ContainsKey(key))
-                {
-                    _stickyNotify.Add(key, new());
-                }
-
-                Action notify = () => { SendEvent(key); };
-
-                if (sticky == Sticky.StickyArray)
-                {
-                    _stickyNotify[key].Add(notify);
-                }
-                else
-                {
-                    if (_stickyNotify[key].Count > 0)
-                    {
-                        _stickyNotify[key][0] = notify;
-                    }
-                    else
-                    {
-                        _stickyNotify[key].Add(notify);
-                    }
-                }
-            }
-            else
-            {
 #if DEBUG
-                Debug.LogWarning("事件" + key + "未注册");
+            Debug.LogWarning("事件" + key + "未注册");
 #endif
-            }
         }
     }
 
@@ -216,10 +145,8 @@ public class EventMgr
     /// </summary>
     /// <param name="key">事件名</param>
     /// <param name="data">参数</param>
-    /// <param name="sticky">粘性通知类型</param>
-    /// <typeparam name="TEnum"></typeparam>
     /// <typeparam name="T"></typeparam>
-    public static void SendEvent<T>(string key, T data, Sticky sticky = Sticky.None)
+    public static void SendEvent<T>(string key, T data)
     {
         _events.TryGetValue(key, out var arr);
 
@@ -241,37 +168,9 @@ public class EventMgr
         }
         else
         {
-            if (sticky != Sticky.None)
-            {
-                if (!_stickyNotify.ContainsKey(key))
-                {
-                    _stickyNotify.Add(key, new());
-                }
-
-                Action notify = () => { SendEvent(key, data); };
-
-                if (sticky == Sticky.StickyArray)
-                {
-                    _stickyNotify[key].Add(notify);
-                }
-                else
-                {
-                    if (_stickyNotify[key].Count > 0)
-                    {
-                        _stickyNotify[key][0] = notify;
-                    }
-                    else
-                    {
-                        _stickyNotify[key].Add(notify);
-                    }
-                }
-            }
-            else
-            {
 #if DEBUG
-                Debug.LogWarning("事件" + key + "未注册");
+            Debug.LogWarning("事件" + key + "未注册");
 #endif
-            }
         }
     }
 
@@ -311,4 +210,5 @@ public class EventMgr
             _nodeNav.Remove(id);
         }
     }
+    
 }
