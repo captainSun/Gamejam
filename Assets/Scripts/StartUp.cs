@@ -10,17 +10,9 @@ public class StartUp : MonoBehaviour
 {
     void Start()
     {
-        EventMgr.AddEvent("testEvent", OnTestEvent);
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(2);
-        seq.AppendCallback(() =>
-        {
-            EventMgr.SendEvent("testEvent");
-        });
+        TimeUtil.Initialize();
+        GameMgr.Initialize();
+        this.gameObject.AddComponent<Looper>();
     }
-
-    void OnTestEvent()
-    {
-        print("================OnTestEvent");
-    }
+    
 }
