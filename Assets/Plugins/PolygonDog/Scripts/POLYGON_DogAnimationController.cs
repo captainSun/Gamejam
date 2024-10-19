@@ -233,19 +233,19 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     }
     void OnGUI()
     {
-        if(DisplayUI) // Display Dog keycodes on UI
-        {
-        GUI.backgroundColor = Color.yellow;
-        for (int i = 0; i < dogKeyCodes.Length; i++)
-        {
-        GUI.Label(new Rect(10, 10 + (i * 30), 400, 30), dogLabels[i] + " " + dogKeyCodes[i].ToString(), guiStyle);
-        }
-        } 
+        //if(DisplayUI) // Display Dog keycodes on UI
+        //{
+        //GUI.backgroundColor = Color.yellow;
+        //for (int i = 0; i < dogKeyCodes.Length; i++)
+        //{
+        //GUI.Label(new Rect(10, 10 + (i * 30), 400, 30), dogLabels[i] + " " + dogKeyCodes[i].ToString(), guiStyle);
+        //}
+        //} 
     }
    void Update()
     {
-        bool attackMode = Input.GetKey(dogKeyCodes[0]); // Get the current keycodes assigned by user
-        bool secondAttack = Input.GetKey(dogKeyCodes[1]);
+        //bool attackMode = Input.GetKey(dogKeyCodes[0]); // Get the current keycodes assigned by user
+        //bool secondAttack = Input.GetKey(dogKeyCodes[1]);
         bool walkPressed = Input.GetKey(dogKeyCodes[2]);
         bool turnBack = Input.GetKey(dogKeyCodes[3]);
         bool leftTurn = Input.GetKey(dogKeyCodes[4]);
@@ -271,22 +271,22 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         bool a11Pressed = Input.GetKey(dogKeyCodes[24]);
         bool a12Pressed = Input.GetKey(dogKeyCodes[25]);
         bool a13Pressed = Input.GetKey(dogKeyCodes[26]);
-        if (attackMode)
-        {
-            dogAnim.SetBool("AttackReady_b", true);
-        }
-        else
-        {
-            dogAnim.SetBool("AttackReady_b", false);
-        }
-        if (secondAttack)
-        {
-            dogAnim.SetInteger("AttackType_int", 2);
-        }
-        else
-        {
-            dogAnim.SetInteger("AttackType_int", 0);
-        }
+        //if (attackMode)
+        //{
+        //    dogAnim.SetBool("AttackReady_b", true);
+        //}
+        //else
+        //{
+        //    dogAnim.SetBool("AttackReady_b", false);
+        //}
+        //if (secondAttack)
+        //{
+        //    dogAnim.SetInteger("AttackType_int", 2);
+        //}
+        //else
+        //{
+        //    dogAnim.SetInteger("AttackType_int", 0);
+        //}
         if (randActionPressed)
         {
             float currentSpeed = a1Pressed ? 1 : maxWalk;

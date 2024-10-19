@@ -114,15 +114,15 @@ public class POLYGON_DogPrefabs : MonoBehaviour
 	}
 	void OnGUI()
 	{
-		if(DisplayPrefabUI)
-		{
-		GUI.backgroundColor = Color.black;
-		GUI.Label(new Rect((Screen.width - 550), 10, 400, 30), "Current Dog: " + DogTransform.GetChild(DogCounter).gameObject.name.ToString(), guiStyle);
-		GUI.Label(new Rect((Screen.width - 550), 45, 400, 30), "Cycle Dog Up: " + CycleDogUp.ToString(), guiStyle);
-		GUI.Label(new Rect((Screen.width - 550), 70, 400, 30), "Cycle Dog Down: " + CycleDogDown.ToString(), guiStyle);
-		GUI.Label(new Rect((Screen.width - 550), 95, 400, 30), "Cycle Attachment Up: " + CycleAttachmentsUp.ToString(), guiStyle);
-		GUI.Label(new Rect((Screen.width - 550), 120, 400, 30), "Cycle Attachment Down: " + CycleAttachmentsDown.ToString(), guiStyle);
-		}
+		//if(DisplayPrefabUI)
+		//{
+		//GUI.backgroundColor = Color.black;
+		//GUI.Label(new Rect((Screen.width - 550), 10, 400, 30), "Current Dog: " + DogTransform.GetChild(DogCounter).gameObject.name.ToString(), guiStyle);
+		//GUI.Label(new Rect((Screen.width - 550), 45, 400, 30), "Cycle Dog Up: " + CycleDogUp.ToString(), guiStyle);
+		//GUI.Label(new Rect((Screen.width - 550), 70, 400, 30), "Cycle Dog Down: " + CycleDogDown.ToString(), guiStyle);
+		//GUI.Label(new Rect((Screen.width - 550), 95, 400, 30), "Cycle Attachment Up: " + CycleAttachmentsUp.ToString(), guiStyle);
+		//GUI.Label(new Rect((Screen.width - 550), 120, 400, 30), "Cycle Attachment Down: " + CycleAttachmentsDown.ToString(), guiStyle);
+		//}
 	}
 	void Update()
 	{

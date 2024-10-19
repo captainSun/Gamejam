@@ -21,6 +21,10 @@ public class PeopleTalk : MonoBehaviour
         
     }
 
+    public void TalkTest()
+    {
+        print("!!!!!!!!!!!!!");
+    }
     
     // Update is called once per frame
     void Update()
