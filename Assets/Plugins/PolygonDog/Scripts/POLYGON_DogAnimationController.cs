@@ -1,4 +1,4 @@
-﻿/*
+﻿ /*
  * POLYGON DOG ANIMATION SCRIPT
  * DESCRIPTION: This script demonstrates the range of animations and Prefabs included in 
  * Polygon Dog which can be customized for the users preference. Please attach this to the
@@ -102,9 +102,23 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     private Vector3 newSpawn = new Vector3();
     public Transform fxTransform;
     public Transform fxTail;
+
+    public float jumpForce = 10f;
+    private Rigidbody rb;
+    private bool isGrounded = true;
+    private MeshCollider dogCollider;
     void Start() // On start store dogKeyCodes
     {
         dogAnim = GetComponent<Animator>(); // Get the animation component
+        rb = GetComponent<Rigidbody>();
+        dogCollider = GetComponent<MeshCollider>();
+
+        if (rb!=null)
+        {
+            rb.isKinematic = false;
+            rb.interpolation = RigidbodyInterpolation.Extrapolate;  // 平滑效果
+        }
+        
         currentSpeed = 0.0f;
         DogNewTypes = new string[]
         {
@@ -219,19 +233,19 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     }
     void OnGUI()
     {
-        if(DisplayUI) // Display Dog keycodes on UI
-        {
-        GUI.backgroundColor = Color.yellow;
-        for (int i = 0; i < dogKeyCodes.Length; i++)
-        {
-        GUI.Label(new Rect(10, 10 + (i * 30), 400, 30), dogLabels[i] + " " + dogKeyCodes[i].ToString(), guiStyle);
-        }
-        } 
+        //if(DisplayUI) // Display Dog keycodes on UI
+        //{
+        //GUI.backgroundColor = Color.yellow;
+        //for (int i = 0; i < dogKeyCodes.Length; i++)
+        //{
+        //GUI.Label(new Rect(10, 10 + (i * 30), 400, 30), dogLabels[i] + " " + dogKeyCodes[i].ToString(), guiStyle);
+        //}
+        //} 
     }
    void Update()
     {
-        bool attackMode = Input.GetKey(dogKeyCodes[0]); // Get the current keycodes assigned by user
-        bool secondAttack = Input.GetKey(dogKeyCodes[1]);
+        //bool attackMode = Input.GetKey(dogKeyCodes[0]); // Get the current keycodes assigned by user
+        //bool secondAttack = Input.GetKey(dogKeyCodes[1]);
         bool walkPressed = Input.GetKey(dogKeyCodes[2]);
         bool turnBack = Input.GetKey(dogKeyCodes[3]);
         bool leftTurn = Input.GetKey(dogKeyCodes[4]);
@@ -257,22 +271,22 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         bool a11Pressed = Input.GetKey(dogKeyCodes[24]);
         bool a12Pressed = Input.GetKey(dogKeyCodes[25]);
         bool a13Pressed = Input.GetKey(dogKeyCodes[26]);
-        if (attackMode)
-        {
-            dogAnim.SetBool("AttackReady_b", true);
-        }
-        else
-        {
-            dogAnim.SetBool("AttackReady_b", false);
-        }
-        if (secondAttack)
-        {
-            dogAnim.SetInteger("AttackType_int", 2);
-        }
-        else
-        {
-            dogAnim.SetInteger("AttackType_int", 0);
-        }
+        //if (attackMode)
+        //{
+        //    dogAnim.SetBool("AttackReady_b", true);
+        //}
+        //else
+        //{
+        //    dogAnim.SetBool("AttackReady_b", false);
+        //}
+        //if (secondAttack)
+        //{
+        //    dogAnim.SetInteger("AttackType_int", 2);
+        //}
+        //else
+        //{
+        //    dogAnim.SetInteger("AttackType_int", 0);
+        //}
         if (randActionPressed)
         {
             float currentSpeed = a1Pressed ? 1 : maxWalk;
@@ -341,10 +355,10 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             StartCoroutine(DogActions(Random.Range(1, 13)));
         }
-        if (jumpPressed)
-        {
-            dogAnim.SetTrigger("Jump_tr");
-        }
+        //if (jumpPressed)
+        //{
+        //    dogAnim.SetTrigger("Jump_tr");
+        //}
         if (sitPressed) // Sit
         {
             if (Sit_b == false)
@@ -467,7 +481,39 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             StartCoroutine(DogActions(13));
         }
+
         dogAnim.SetTrigger("Blink_tr"); // Blink will continue unless asleep or dead
         dogAnim.SetFloat("Movement_f", w_movement); // Set movement speed for all required parameters
+
+        AddjustToGroundHeight();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this.Jump();
+        }
+
     }
+
+    private void Jump() { 
+        dogAnim.applyRootMotion = false;
+        dogAnim.SetTrigger("Jump_tr");
+        rb.AddForce(Vector3.up * jumpForce , ForceMode.Impulse);
+    }
+
+    private void AddjustToGroundHeight()
+    {
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.down, out hit, 1.5f))
+        {
+            Vector3 targetPosition = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
+            dogAnim.applyRootMotion = true;
+
+        }
+    }
+       
+
+    
+
 }
