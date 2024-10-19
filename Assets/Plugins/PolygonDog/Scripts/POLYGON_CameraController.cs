@@ -24,6 +24,8 @@ public class POLYGON_CameraController : MonoBehaviour
     Transform camera;
     // (Move to input script)
     float MouseX;
+
+    float MouseY;
     void Start()
     {
         //camera start
@@ -38,6 +40,7 @@ public class POLYGON_CameraController : MonoBehaviour
     void Update()
     {
         MouseX += Input.GetAxis("Mouse X");
+        MouseY += Input.GetAxis("Mouse Y");
     }
     void LateUpdate()
     {
@@ -46,7 +49,7 @@ public class POLYGON_CameraController : MonoBehaviour
             //camera follow
             newPosition = target.position;
             newPosition.y += (distance);
-            newRotation = Quaternion.Euler(new Vector3(0f, target.rotation.eulerAngles.y + MouseX, 0f));
+            newRotation = Quaternion.Euler(new Vector3(0f + MouseY, target.rotation.eulerAngles.y + MouseX, 0f));
             position = Vector3.Lerp(position, newPosition, followSpeed * Time.deltaTime);
             rotation = Quaternion.Lerp(rotation, newRotation, rotationSpeed * Time.deltaTime);
             transform.position = position;
