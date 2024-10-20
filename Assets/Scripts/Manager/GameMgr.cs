@@ -12,15 +12,18 @@ public static class GameMgr
     public static Volume globalVolume; //volume组件
     public static Camera mainCamera;
     public static GameObject mainMenu;
+    public static GameObject @DialogueUGUI;
     //初始化
     public static void Initialize()
     {
-        people = GameObject.FindGameObjectWithTag("People");
-        dog = GameObject.FindGameObjectWithTag("Dog");
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         globalVolume = GameObject.Find("GlobalVolume").GetComponent<Volume>();
-        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
-        globalVolume.enabled = false;
+        // people = GameObject.FindGameObjectWithTag("People");
+        // dog = GameObject.FindGameObjectWithTag("Dog");
+        
+        
+        // mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        // globalVolume.enabled = false;
         LoadLoginPanel();
     }
 
@@ -35,7 +38,7 @@ public static class GameMgr
     public static void StartGame()
     {
         globalVolume.enabled = true;
-        mainCamera.gameObject.SetActive(false);
+        // mainCamera.gameObject.SetActive(false);
         Object uiPrefab = ResourceMgr.LoadResAsset("MainMenu",AssetsEnum.Prefab);
         mainMenu = GameObject.Instantiate(uiPrefab, GameMgr.canvas.transform) as GameObject;
     }

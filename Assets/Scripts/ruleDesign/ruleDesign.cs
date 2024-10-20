@@ -77,29 +77,29 @@ public class FallDetector : MonoBehaviour
             isRunning = false;
         }
 
-        if (dogTransform.GetComponent<DogController>().isRunning) // 假设狗有一个DogController脚本来判断是否在跑步
-        {
-            if (!isDogRunning)
-            {
-                isDogRunning = true;
-                if (!isRunning)
-                {
-                    OnFall();
-                }
-                else
-                {
-                    runStartTime = Time.time; // 重置跑步计时
-                }
-            }
-            else if (Time.time - runStartTime >= dogRunFallDuration)
-            {
-                OnFall();
-            }
-        }
-        else
-        {
-            isDogRunning = false;
-        }
+        // if (dogTransform.GetComponent<DogController>().isRunning) // 假设狗有一个DogController脚本来判断是否在跑步
+        // {
+        //     if (!isDogRunning)
+        //     {
+        //         isDogRunning = true;
+        //         if (!isRunning)
+        //         {
+        //             OnFall();
+        //         }
+        //         else
+        //         {
+        //             runStartTime = Time.time; // 重置跑步计时
+        //         }
+        //     }
+        //     else if (Time.time - runStartTime >= dogRunFallDuration)
+        //     {
+        //         OnFall();
+        //     }
+        // }
+        // else
+        // {
+        //     isDogRunning = false;
+        // }
     }
 
     private void OnFall()
