@@ -12,7 +12,7 @@ public class StartUp : MonoBehaviour
     {
         TimeUtil.Initialize();
         GameMgr.Initialize();
-        this.gameObject.AddComponent<Looper>();
+        gameObject.AddComponent<Looper>();
     }
     
 }
