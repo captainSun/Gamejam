@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 /// </summary>
 public static class GameMgr
 {
+    public static GameObject Environment;
     public static GameObject people; //人
     public static GameObject dog; //狗
     public static Canvas canvas; //canvas
@@ -16,14 +17,14 @@ public static class GameMgr
     //初始化
     public static void Initialize()
     {
+        Environment = GameObject.Find("Environment");
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        globalVolume = GameObject.Find("GlobalVolume").GetComponent<Volume>();
-        // people = GameObject.FindGameObjectWithTag("People");
-        // dog = GameObject.FindGameObjectWithTag("Dog");
-        
-        
-        // mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
-        // globalVolume.enabled = false;
+        globalVolume = Environment.transform.Find("GlobalVolume").GetComponent<Volume>();
+        people = GameObject.FindGameObjectWithTag("People");
+        dog = GameObject.FindGameObjectWithTag("Dog");
+        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        globalVolume.gameObject.SetActive(true);
+        globalVolume.enabled = false;
         LoadLoginPanel();
     }
 
@@ -38,7 +39,7 @@ public static class GameMgr
     public static void StartGame()
     {
         globalVolume.enabled = true;
-        // mainCamera.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(false);
         Object uiPrefab = ResourceMgr.LoadResAsset("MainMenu",AssetsEnum.Prefab);
         mainMenu = GameObject.Instantiate(uiPrefab, GameMgr.canvas.transform) as GameObject;
     }
