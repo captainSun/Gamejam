@@ -15,7 +15,7 @@ public class FallDetector : MonoBehaviour
     private float runStartTime;
     private bool isStruggling = false;
     private bool isRunning = false;
-    private bool isDogRunning = false;
+    //private bool isDogRunning = false;
 
     private void Start()
     {

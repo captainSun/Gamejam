@@ -40,7 +40,7 @@ public static class GameMgr
     public static void StartGame()
     {
         globalVolume.enabled = true;
-        mainCamera.gameObject.SetActive(false);
+        //mainCamera.gameObject.SetActive(false);
         mainMenu = ResourceMgr.CreateObj("MainMenu", GameMgr.canvas.transform);
     }
 

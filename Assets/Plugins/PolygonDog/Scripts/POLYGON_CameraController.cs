@@ -33,8 +33,9 @@ public class POLYGON_CameraController : MonoBehaviour
         position = new Vector3(target.position.x, target.position.y + distance, target.position.z);
         rotation = Quaternion.Euler(new Vector3(45f, target.rotation.eulerAngles.y, 0f));
         // camera offset 
-        camera = this.gameObject.transform.GetChild(0);
-        camera.position = new Vector3(0f, cameraPositionY, cameraPositionZ);
+        //camera = this.gameObject.transform.GetChild(0);
+        camera = this.gameObject.transform;
+        camera.position = new Vector3(100f, cameraPositionY, cameraPositionZ);
         camera.rotation = Quaternion.Euler(cameraRotationX, 0f, 0f);
         camera.GetComponent<Camera>().fieldOfView = 60;
     }
@@ -51,6 +52,7 @@ public class POLYGON_CameraController : MonoBehaviour
             newPosition = target.position;
             newPosition.y += (distance);
             newRotation = Quaternion.Euler(new Vector3(0f + -1 * MouseY, target.rotation.eulerAngles.y + MouseX, 0f));
+            //newRotation = Quaternion.Euler(0f, target.rotation.eulerAngles.y + MouseX, 0f);
             position = Vector3.Lerp(position, newPosition, followSpeed * Time.deltaTime);
             rotation = Quaternion.Lerp(rotation, newRotation, rotationSpeed * Time.deltaTime);
             transform.position = position;
