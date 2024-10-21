@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshProUGUI remainTime;
+    public TextMeshProUGUI scoreText;
     void Start()
     {
-        
+        remainTime = transform.Find("RemainTime").GetComponent<TextMeshProUGUI>();
+        scoreText = transform.Find("ScoreText").GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartLevel()
     {
-        
     }
+
 }
