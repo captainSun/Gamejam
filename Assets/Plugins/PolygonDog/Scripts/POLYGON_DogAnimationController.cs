@@ -107,12 +107,15 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded = true;
     private MeshCollider dogCollider;
+
+    //用于判断是否在跑步状态
+    public bool isRunning;
     void Start() // On start store dogKeyCodes
     {
         dogAnim = GetComponent<Animator>(); // Get the animation component
         rb = GetComponent<Rigidbody>();
         dogCollider = GetComponent<MeshCollider>();
-
+        this.isRunning = false;
         if (rb!=null)
         {
             rb.isKinematic = false;
@@ -294,10 +297,12 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (runPressed)
         {
+            this.isRunning = true;
             currentSpeed = maxRun;
         }
         if (!runPressed)
         {
+            this.isRunning = false;
             currentSpeed = maxWalk;
         }
         if (walkPressed && (w_movement < currentSpeed)) // If walking

@@ -77,7 +77,7 @@ public class FallDetector : MonoBehaviour
             isRunning = false;
         }
 
-        if (dogTransform.GetComponent<DogController>().isRunning) // 假设狗有一个DogController脚本来判断是否在跑步
+        if (dogTransform.GetComponent<POLYGON_DogAnimationController>().isRunning) // 假设狗有一个DogController脚本来判断是否在跑步
         {
             if (!isDogRunning)
             {
