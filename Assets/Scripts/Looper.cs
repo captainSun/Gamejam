@@ -21,5 +21,6 @@ public class Looper : MonoBehaviour
 
         TimeUtil.Update();
         Timer.Update();
+        LevelController.UpdateCheck();
     }
 }

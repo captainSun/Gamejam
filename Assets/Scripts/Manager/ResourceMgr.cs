@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening.Plugins.Core.PathCore;
 using UnityEngine;
 
 //资源类型定义
@@ -112,7 +113,20 @@ public static class ResourceMgr
         }
         return path;
     }
-    
+
+    /// <summary>
+    /// 根据路径实例化
+    /// </summary>
+    /// <param name="path"></param>
+    /// <param name="parent"></param>
+    /// <returns></returns>
+    public static GameObject CreateObj(string path, Transform parent)
+    {
+        Object uiPrefab = ResourceMgr.LoadResAsset(path,AssetsEnum.Prefab);
+        GameObject obj = GameObject.Instantiate(uiPrefab, parent) as GameObject;
+        return obj;
+    }
+
     //获取所有的图片
     public static Sprite[] GetAllSprite(string assetName, AssetsEnum assetsEnum)
     {

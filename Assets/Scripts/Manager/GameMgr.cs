@@ -6,20 +6,26 @@ using UnityEngine.Rendering;
 /// </summary>
 public static class GameMgr
 {
+    public static GameObject Environment; //相关设置根节点
     public static GameObject people; //人
     public static GameObject dog; //狗
+    public static GameObject mainMenu;
     public static Canvas canvas; //canvas
     public static Volume globalVolume; //volume组件
     public static Camera mainCamera;
-    public static GameObject mainMenu;
+
+  
+        
     //初始化
     public static void Initialize()
     {
+        Environment = GameObject.Find("Environment");
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        globalVolume = Environment.transform.Find("GlobalVolume").GetComponent<Volume>();
         people = GameObject.FindGameObjectWithTag("People");
         dog = GameObject.FindGameObjectWithTag("Dog");
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        globalVolume = GameObject.Find("GlobalVolume").GetComponent<Volume>();
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        globalVolume.gameObject.SetActive(true);
         globalVolume.enabled = false;
         LoadLoginPanel();
     }
@@ -27,8 +33,7 @@ public static class GameMgr
    
     public static void LoadLoginPanel()
     {
-        Object uiPrefab = ResourceMgr.LoadResAsset("LoginPanel",AssetsEnum.Prefab);
-        GameObject LoginPanel = GameObject.Instantiate(uiPrefab, GameMgr.canvas.transform) as GameObject;
+        GameObject LoginPanel = ResourceMgr.CreateObj("LoginPanel", GameMgr.canvas.transform);
     }
 
     //开始游戏
@@ -36,7 +41,16 @@ public static class GameMgr
     {
         globalVolume.enabled = true;
         mainCamera.gameObject.SetActive(false);
-        Object uiPrefab = ResourceMgr.LoadResAsset("MainMenu",AssetsEnum.Prefab);
-        mainMenu = GameObject.Instantiate(uiPrefab, GameMgr.canvas.transform) as GameObject;
+        mainMenu = ResourceMgr.CreateObj("MainMenu", GameMgr.canvas.transform);
+    }
+
+    //开始关卡
+    public static void StartLevel(int levelIndex)
+    {
+    }
+    
+    //重置关卡
+    public static void ResetLevel(int levelIndex)
+    {
     }
 }
