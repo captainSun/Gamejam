@@ -56,6 +56,20 @@ public static class TimeUtil
         return timeMsec;
     }
 
+    public static string FloatForTime(float time)
+    {
+        //秒数取整
+        int seconds = (int)time/1000;
+        //一小时为3600秒 秒数对3600取整即为小时
+        int hour = seconds / 3600;
+        //一分钟为60秒 秒数对3600取余再对60取整即为分钟
+        int minute = seconds % 3600 / 60;
+        //对3600取余再对60取余即为秒数
+        seconds = seconds % 3600 % 60;
+        
+        //打印00:00:00时间格式
+        return string.Format("{0:D2}:{1:D2}:{2:D2}", hour, minute, seconds);
+    }
 
     //
 }

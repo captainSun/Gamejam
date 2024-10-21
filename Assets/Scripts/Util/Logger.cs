@@ -65,7 +65,7 @@ public static class Logger
     /// </summary>
     /// <param name="msg">Message.</param>
     /// <param name="stackTrace">Stack trace.</param>
-    public static void LogWarning(string msg, string stackTrace)
+    public static void LogWarning(string msg, string stackTrace = null)
     {
         LogData data = LogData.Append(LogData.TYPE_WARNING, msg, stackTrace);
         Debug.LogWarning(data);
@@ -77,7 +77,7 @@ public static class Logger
     /// </summary>
     /// <param name="msg">Message.</param>
     /// <param name="stackTrace">Stack trace.</param>
-    public static void LogError(string msg, string stackTrace)
+    public static void LogError(string msg, string stackTrace = null)
     {
         LogData data = LogData.Append(LogData.TYPE_ERROR, msg, stackTrace);
         Debug.LogError(data);
