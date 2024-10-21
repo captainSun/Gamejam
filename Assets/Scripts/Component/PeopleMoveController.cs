@@ -9,12 +9,22 @@ public class PeopleMoveController : MonoBehaviour
     private GameObject people;
     private Rigidbody _rigidbody;
     public float speed = 1;
+    public CheckPointManager checkPointMgr;
     void Start()
     {
         people = gameObject;
         _rigidbody = GetComponent<Rigidbody>();
     }
-    
+
+    private void Update()
+    {
+        //测试回到当前关卡起点
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            this.OnFall();
+        }
+    }
+
     void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal"); //A D 左右
@@ -28,4 +38,10 @@ public class PeopleMoveController : MonoBehaviour
             _rigidbody.velocity = Vector3.right * horizontal * speed;
         }   
     }
+
+    public void OnFall()
+    {
+        checkPointMgr.ResetToStart();
+    }
+
 }

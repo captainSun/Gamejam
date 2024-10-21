@@ -60,7 +60,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public KeyCode sleep = KeyCode.Q; // Sleep
     public KeyCode ExitPlaymode = KeyCode.Escape; // Escape playmode
     public KeyCode Death = KeyCode.X; // Death 
-    public KeyCode Reset = KeyCode.R; // Reset dog
+    public KeyCode Reset = KeyCode.Z; // Reset dog
     [Header("Custom Actions")]
     public KeyCode action1 = KeyCode.Alpha1;
     public KeyCode action2 = KeyCode.Alpha2;
