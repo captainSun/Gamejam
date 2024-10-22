@@ -9,6 +9,7 @@ public enum AssetsEnum
     Prefab,
     Texture,
     Material,
+    Scriptable,
 }
 
 /// <summary>
@@ -31,6 +32,7 @@ public static class ResourceMgr
     public static readonly string PrefabRootPath = "Prefabs/";
     public static readonly string TextureRootPath = "Textures/";
     public static readonly string MaterialRootPath = "Materials/";
+    public static readonly string ScriptableRootPath = "Scriptable/";
     
     //指定类型加载
     public static T LoadResAsset<T>(string assetName, AssetsEnum assetsEnum) where T : Object
@@ -109,6 +111,9 @@ public static class ResourceMgr
                 break;
             case AssetsEnum.Material:
                 path = MaterialRootPath + assetPath;
+                break;
+            case AssetsEnum.Scriptable:
+                path = ScriptableRootPath + assetPath;
                 break;
         }
         return path;
