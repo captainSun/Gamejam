@@ -99,11 +99,11 @@ public class POLYGON_DogPrefabs : MonoBehaviour
 		AllDogAttach.Add(ZombieGermanShepherd);//27
 		DogTransform = getDogName; // Set Dog Transform to Dogs
 		DogCounter = 6; // Set Dog counter to 0 on startup
-		counter = 0; // Set attachment counter to 0 on startup
+		counter = 2; // Set attachment counter to 0 on startup
 		setInvisible(1);
-		if (CheckValid(DogTransform.GetChild(6).gameObject, AllDogAttach[0][0], 1)) // Check if Dog mesh is valid
+		if (CheckValid(DogTransform.GetChild(15).gameObject, AllDogAttach[0][0], 1)) // Check if Dog mesh is valid
 		{
-			DogTransform.GetChild(6).gameObject.SetActive(true);
+			DogTransform.GetChild(15).gameObject.SetActive(true);
 		}
 		if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[0][0], 2)) // Check if Dog attachment is valid
 		{
@@ -126,128 +126,128 @@ public class POLYGON_DogPrefabs : MonoBehaviour
 	}
 	void Update()
 	{
-		if (Input.GetKeyDown(CycleDogUp)) // Cycle through dog descending
-		{
-			if (DogCounter < DogTransform.childCount - 1)
-			{
-				DogCounter += 1;
-			}
-			else
-			{
-				DogCounter = 0;
-			}
-			setInvisible(3);
-			if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
-			{
-				if (counter < AllDogAttach[DogCounter].Length)
-				{
-					if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
-					{
-						AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
-					}
-				}
-				else
-				{
-					counter = 0;
-					if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
-					{
-						AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
-					}
-				}
-			}
-			DogTransform.GetChild(DogCounter).gameObject.SetActive(true);
-		}
-		if (Input.GetKeyDown(CycleDogDown)) // Cycle through dog ascending
-		{
-			if (DogCounter > 0)
-			{
-				DogCounter -= 1;
-			}
-			else
-			{
-				DogCounter = DogTransform.childCount - 1;
-			}
-			setInvisible(3);
-			if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
-			{
-				if (counter < AllDogAttach[DogCounter].Length)
-				{
-					if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
-					{
-						AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
-					}
-				}
-				else
-				{
-					counter = 0;
-					if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
-					{
-						AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
-					}
-				}
-			}
-			DogTransform.GetChild(DogCounter).gameObject.SetActive(true);
-		}
-		if (Input.GetKeyDown(CycleAttachmentsUp)) // Cycle through Dog attachment descending
-		{
-			setInvisible(2);
-			if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
-			{
-				if (counter < AllDogAttach[DogCounter].Length - 1)
-				{
-					counter += 1;
-				}
-				else
-				{
-					counter = 0;
-				}
-				if (counter < AllDogAttach[DogCounter].Length)
-				{
-					if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
-					{
-						AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
-					}
-				}
-				else
-				{
-					counter = 0;
-				}
-			}
-			else
-			{
-				Debug.Log(DogTransform.GetChild(DogCounter).gameObject.name + " HAS NO ATTACHMENTS!");
-			}
-		}
-		if (Input.GetKeyDown(CycleAttachmentsDown))// Cycle through Dog attachment ascending
-		{
-			setInvisible(2);
-			if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
-			{
-				if (counter > 0)
-				{
-					counter -= 1;
-				}
-				else
-				{
-					counter = AllDogAttach[DogCounter].Length - 1;
-				}
-				if (counter < AllDogAttach[DogCounter].Length)
-				{
-					if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
-					{
-						AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
-					}
-				}
-				else
-				{
-					counter = 0;
-				}
-			}
-			else
-			{
-				Debug.Log(DogTransform.GetChild(DogCounter).gameObject.name + " HAS NO ATTACHMENTS!");
-			}
-		}
+		//if (Input.GetKeyDown(CycleDogUp)) // Cycle through dog descending
+		//{
+		//	if (DogCounter < DogTransform.childCount - 1)
+		//	{
+		//		DogCounter += 1;
+		//	}
+		//	else
+		//	{
+		//		DogCounter = 0;
+		//	}
+		//	setInvisible(3);
+		//	if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
+		//	{
+		//		if (counter < AllDogAttach[DogCounter].Length)
+		//		{
+		//			if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
+		//			{
+		//				AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
+		//			}
+		//		}
+		//		else
+		//		{
+		//			counter = 0;
+		//			if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
+		//			{
+		//				AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
+		//			}
+		//		}
+		//	}
+		//	DogTransform.GetChild(DogCounter).gameObject.SetActive(true);
+		//}
+		//if (Input.GetKeyDown(CycleDogDown)) // Cycle through dog ascending
+		//{
+		//	if (DogCounter > 0)
+		//	{
+		//		DogCounter -= 1;
+		//	}
+		//	else
+		//	{
+		//		DogCounter = DogTransform.childCount - 1;
+		//	}
+		//	setInvisible(3);
+		//	if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
+		//	{
+		//		if (counter < AllDogAttach[DogCounter].Length)
+		//		{
+		//			if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
+		//			{
+		//				AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
+		//			}
+		//		}
+		//		else
+		//		{
+		//			counter = 0;
+		//			if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
+		//			{
+		//				AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
+		//			}
+		//		}
+		//	}
+		//	DogTransform.GetChild(DogCounter).gameObject.SetActive(true);
+		//}
+		//if (Input.GetKeyDown(CycleAttachmentsUp)) // Cycle through Dog attachment descending
+		//{
+		//	setInvisible(2);
+		//	if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
+		//	{
+		//		if (counter < AllDogAttach[DogCounter].Length - 1)
+		//		{
+		//			counter += 1;
+		//		}
+		//		else
+		//		{
+		//			counter = 0;
+		//		}
+		//		if (counter < AllDogAttach[DogCounter].Length)
+		//		{
+		//			if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
+		//			{
+		//				AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
+		//			}
+		//		}
+		//		else
+		//		{
+		//			counter = 0;
+		//		}
+		//	}
+		//	else
+		//	{
+		//		Debug.Log(DogTransform.GetChild(DogCounter).gameObject.name + " HAS NO ATTACHMENTS!");
+		//	}
+		//}
+		//if (Input.GetKeyDown(CycleAttachmentsDown))// Cycle through Dog attachment ascending
+		//{
+		//	setInvisible(2);
+		//	if (AllDogAttach[DogCounter] != null && AllDogAttach[DogCounter].Length > 0)
+		//	{
+		//		if (counter > 0)
+		//		{
+		//			counter -= 1;
+		//		}
+		//		else
+		//		{
+		//			counter = AllDogAttach[DogCounter].Length - 1;
+		//		}
+		//		if (counter < AllDogAttach[DogCounter].Length)
+		//		{
+		//			if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[DogCounter][counter], 2))
+		//			{
+		//				AllDogAttach[DogCounter][counter].gameObject.SetActive(true);
+		//			}
+		//		}
+		//		else
+		//		{
+		//			counter = 0;
+		//		}
+		//	}
+		//	else
+		//	{
+		//		Debug.Log(DogTransform.GetChild(DogCounter).gameObject.name + " HAS NO ATTACHMENTS!");
+		//	}
+		//}
 	}
 	private bool CheckValid(GameObject Dog, GameObject DogAttach, int checkMarker) // 1 = Dog, 2 = Attach
 	{
