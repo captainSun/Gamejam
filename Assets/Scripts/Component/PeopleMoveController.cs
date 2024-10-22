@@ -23,29 +23,29 @@ public class PeopleMoveController : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        // 如果摔倒，处理恢复时间
-        if (isFallen)
-        {
-            recoveryTimer += Time.deltaTime;
-            if (recoveryTimer >= recoveryTime)
-            {
-                isFallen = false;
-                recoveryTimer = 0f;
-            }
-            return; // 摔倒时不能移动
-        }
-
-        HandleMovement();
-        HandleRotation();
-        AddjustToGroundHeight();
-        // 检查规则类，看是否需要触发摔跤
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            OnFall(); // 触发摔跤
-        }
-    }
+    // void Update()
+    // {
+    //     // 如果摔倒，处理恢复时间
+    //     if (isFallen)
+    //     {
+    //         recoveryTimer += Time.deltaTime;
+    //         if (recoveryTimer >= recoveryTime)
+    //         {
+    //             isFallen = false;
+    //             recoveryTimer = 0f;
+    //         }
+    //         return; // 摔倒时不能移动
+    //     }
+    //
+    //     HandleMovement();
+    //     HandleRotation();
+    //     AddjustToGroundHeight();
+    //     // 检查规则类，看是否需要触发摔跤
+    //     if (Input.GetKeyDown(KeyCode.R))
+    //     {
+    //         OnFall(); // 触发摔跤
+    //     }
+    // }
 
     private void HandleMovement()
     {
@@ -73,21 +73,21 @@ public class PeopleMoveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //float horizontal = Input.GetAxis("Horizontal"); //A D 左右
-        //float vertical = Input.GetAxis("Vertical"); //W S 上 下
-        //if (Input.GetKey(KeyCode.UpArrow) | Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    rb.velocity = Vector3.forward * vertical * speed;
-        //}
-        //if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    rb.velocity = Vector3.right * horizontal * speed;
-        //}
+        float horizontal = Input.GetAxis("Horizontal"); //A D 左右
+        float vertical = Input.GetAxis("Vertical"); //W S 上 下
+        if (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.S))
+        {
+            rb.velocity = Vector3.forward * vertical * moveSpeed;
+        }
+        if (Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.D))
+        {
+            rb.velocity = Vector3.right * horizontal * moveSpeed;
+        }
     }
 
     public void OnFall()
     {
-        checkPointMgr.ResetToStart();
+        // checkPointMgr.ResetToStart();
     }
 
     private void AddjustToGroundHeight()

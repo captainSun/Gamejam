@@ -19,20 +19,17 @@ public class MainMenu : MonoBehaviour
         //事件监听
         EventMgr.AddEvent("UpdateScore", UpdateScore, "MainMenu");
     }
-
-    //初始化界面设置
+    
     public void StartLevel(LevelData data)
     {
         curLvData = data;
         scoreText.SetText(string.Format("剩余次数：{0}", curLvData.hp)) ;
-        remainTime = curLvData.timeLimit * 1000;
-        timer = Timer.Create(5, (int)remainTime / 5, UpdateTime);
+       
     }
 
-    public void UpdateTime(Timer timer)
+    public void UpdateTime(float timer)
     {
-        remainTime = remainTime - timer.delay;
-        remainTimeText.text = string.Format("剩余时间：{0}", TimeUtil.FloatForTime(remainTime));
+        remainTimeText.text = string.Format("剩余时间：{0}", TimeUtil.FloatForTime(timer));
     }
 
     public void UpdateScore()
