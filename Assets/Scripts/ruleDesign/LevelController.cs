@@ -16,7 +16,7 @@ public static class LevelController
     
     public static float maxAngleDifference = 45f; // 人和狗之间的最大角度差
     public static float fallDuration = 2f; // 僵持时间，超过这个时间就会摔倒
-    public static float maxRopeLength = 3f; // 绳子最大长度
+    public static float maxRopeLength = 99f; // 绳子最大长度
     public static float runFallDuration = 4f; // 人跑动超过这个时间会摔倒
     public static float dogRunFallDuration = 2f; // 狗跑动超过这个时间会摔倒
 
@@ -67,6 +67,7 @@ public static class LevelController
         {
             timer = null;
             //倒计时结束
+            StopLevel(false);
         }
        
     }
@@ -79,6 +80,7 @@ public static class LevelController
         GameMgr.PlayFall(() =>
         {
             ResetPos();
+            GameMgr.SetMoveControl(true);
             inControl = true;
             timer = Timer.Create(5, (int)remainTime / 5, UpdateTime);
         });
