@@ -37,8 +37,10 @@ public class CheckPointManager : MonoBehaviour
 
     public void ResetTrans()
     {
-        print(startPoints[currentLevel].position.y);
-        playerGroup.transform.position = startPoints[currentLevel].position;
+        print(startPoints[currentLevel].position + "..............");
+        //SetKinematic(true);
+        playerGroup.transform.position = startPoints[currentLevel].transform.position;
+        //SetKinematic(false);
         //playerGroup.transform.rotation = startPoints[currentLevel].rotation;
     }
 
