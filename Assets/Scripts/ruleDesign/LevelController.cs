@@ -151,7 +151,7 @@ public static class LevelController
             //到达坏结局
             StopLevel(false);
         }
-        else if (endPoint.transform.parent.name == "trans_3_bad")
+        else if (endPoint.transform.parent.name == "trans_4")
         {
             //到达好结局
             StopLevel(true);
