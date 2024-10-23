@@ -14,14 +14,24 @@ public static class LevelController
     public static Timer timer; //关卡计时器
     public static float remainTime = 0; //剩余时间
     
-    public static float maxAngleDifference = 45f; // 人和狗之间的最大角度差
+    public static float maxAngleDifference = 135f; // 人和狗之间的最大角度差
+    public static float maxRopeLength = 4f; // 绳子最大长度
+    
     public static float fallDuration = 2f; // 僵持时间，超过这个时间就会摔倒
-    public static float maxRopeLength = 99f; // 绳子最大长度
     public static float runFallDuration = 4f; // 人跑动超过这个时间会摔倒
     public static float dogRunFallDuration = 2f; // 狗跑动超过这个时间会摔倒
 
-    public static Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
+    public static Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>(); //关卡配置
+
+    public static List<GameObject> triggerList = new List<GameObject>();//关卡触发器
     
+    public static void Initialize()
+    {
+        triggerList.Add(GameObject.Find("trans_2").gameObject);
+        triggerList.Add(GameObject.Find("trans_3_bad").gameObject);
+        triggerList.Add(GameObject.Find("trans_2").gameObject);
+    }
+
     //开始关卡
     public static void StartLevel(int level)
     {
@@ -56,6 +66,7 @@ public static class LevelController
         EventMgr.AddEvent<GameObject>("EndPointTriggerEnter", OnEndPointTriggerEnter, "EndPoint");
     }
 
+    //倒计时更新
     static void UpdateTime(Timer _timer)
     {
         remainTime = remainTime - timer.delay;
@@ -68,6 +79,7 @@ public static class LevelController
             timer = null;
             //倒计时结束
             StopLevel(false);
+            GameMgr.mainMenu.ShowStopNotice(1);
         }
        
     }
@@ -77,12 +89,14 @@ public static class LevelController
     {
         Logger.Log("StopLevel 播放摔倒重置关卡");
         StopControl();
+        GameMgr.mainMenu.ShowStopNotice(3);
         GameMgr.PlayFall(() =>
         {
             ResetPos();
             GameMgr.SetMoveControl(true);
             inControl = true;
             timer = Timer.Create(5, (int)remainTime / 5, UpdateTime);
+            GameMgr.mainMenu.ActiveInfo(true);
         });
     }
 
@@ -92,6 +106,7 @@ public static class LevelController
         StopControl();
         remainTime = 0;
         curScore = 0;
+        ActiveTrigger(false);
         if (isWin)
         {
             Logger.Log("StopLevel 胜利");
@@ -133,10 +148,22 @@ public static class LevelController
         GameMgr.SetMoveControl(false);
     }
 
+    //开关场景里的触发器
+    public static void ActiveTrigger(bool flag)
+    {
+        for (int i = 0; i < triggerList.Count; i++)
+        {
+            triggerList[i].SetActive(flag);
+        }
+    }
+
+    //关卡触发监听
     public static void OnEndPointTriggerEnter(GameObject endPoint)
     {
         EventMgr.RemoveAllEvents("EndPoint");
         StopControl();
+        endPoint.SetActive(false);
+        GameMgr.mainMenu.ActiveInfo(false);
         if (endPoint.transform.parent.name == "trans_2")
         {
             Logger.Log("StopLevel 到达第一关");
@@ -167,8 +194,11 @@ public static class LevelController
 
         //两者距离
         float distance = Vector3.Distance(GameMgr.people.transform.position, GameMgr.dog.transform.position);
-        
-        if (distance > maxRopeLength)
+        //角度差
+        float angleDifference = Vector3.Angle(GameMgr.people.transform.forward, GameMgr.dog.transform.forward);
+        // Logger.Log("两者距离==="+distance);
+        // Logger.Log("角度差==="+angleDifference);
+        if (distance > maxRopeLength || angleDifference > maxAngleDifference)
         {
             curScore += 1;
             EventMgr.SendEvent("UpdateScore");
@@ -177,6 +207,7 @@ public static class LevelController
                 Logger.Log("StopLevel 次数用尽");
                 //次数用尽
                 StopLevel(false);
+                GameMgr.mainMenu.ShowStopNotice(2);
             }
             else
             {

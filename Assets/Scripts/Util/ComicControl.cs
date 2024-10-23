@@ -1,6 +1,7 @@
 using NodeCanvas.Tasks.Actions;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,12 +12,11 @@ public class ComicControl : MonoBehaviour
     public Image displayImg;
     private int currentPageIndex = 0;
     private CanvasGroup canvasG;
-    // Start is called before the first frame update
+   
     void Start()
     {
         canvasG = GetComponent<CanvasGroup>();
         canvasG.alpha = 1.0f;
-        //displayImg = this.GetComponent<Image>();
     }
 
     public void OnPageClicked()
@@ -26,7 +26,11 @@ public class ComicControl : MonoBehaviour
             StartCoroutine(SwitchPage());
         }
         else {
-            SceneManager.LoadScene("Game");
+            canvasG.DOFade(0, 0.2f).OnComplete(() => 
+            {
+                EventMgr.SendEvent("OpenAniEnd");
+            });
+            
         }
 
     }

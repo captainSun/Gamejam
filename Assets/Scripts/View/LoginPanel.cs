@@ -15,7 +15,7 @@ public class LoginPanel : MonoBehaviour
     void StartGame()
     {
         Destroy(gameObject);
-        GameMgr.StartGame();
+        GameMgr.PlayOpen();
     }
 
 }

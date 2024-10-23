@@ -12,6 +12,7 @@ public class StartUp : MonoBehaviour
     {
         TimeUtil.Initialize();
         GameMgr.Initialize();
+        LevelController.Initialize();
         gameObject.AddComponent<Looper>();
     }
     
