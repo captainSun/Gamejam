@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LevelData_1
   m_EditorClassIdentifier: 
   peopleStartPos: {x: -11.5, y: 4, z: -3}
-  peopleStartRot: {x: 0, y: 90, z: 0}
+  peopleStartRot: {x: 0, y: 0, z: 0}
   dogStartPos: {x: -9.5, y: 3, z: -3}
-  dogStartRot: {x: 0, y: 90, z: 0}
+  dogStartRot: {x: 0, y: 0, z: 0}
   timeLimit: 60
   hp: 3
