@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,53 +7,27 @@ using UnityEngine;
 /// </summary>
 public class PeopleMoveController : MonoBehaviour
 {
-    public float moveSpeed = 0.1f;           // 移动速度
+    public float moveSpeed = 2f;           // 移动速度
     public float rotationSpeed = 100f;     // 旋转速度
-    public float fallThreshold = 2f;       // 摔跤的速度阈值
-    public float recoveryTime = 2f;        // 摔倒后恢复时间
+    public float stepHeight = 0.3f;        // 可跨越的台阶高度
+    public float stepSmooth = 0.1f;        // 平滑爬台阶速度
+    public float recoveryTime = 2f;        // 摔倒后的恢复时间
 
-    private Rigidbody rb;                  // 刚体组件
-    private bool isFallen = false;         // 摔倒状态
-    private float recoveryTimer = 0f;
-    public CheckPointManager checkPointMgr;
-
-    //IEnumerator DelayedInit()
-    //{
-    //    yield return new WaitForEndOfFrame();
-    //}
+    private Rigidbody rb;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;//暂时关闭物理效果，防止与绳子的物理效果冲突
-        rb.freezeRotation = true; // 防止刚体因碰撞自动旋转
-        rb.useGravity = true;
-        rb.mass = 2f;
         rb.isKinematic = false;
+        rb.freezeRotation = true; // 防止刚体自动旋转
+        rb.useGravity = true;
+        animator = GetComponentInChildren<Animator>();
     }
-
 
     void Update()
     {
-        // 如果摔倒，处理恢复时间
-        if (isFallen)
-        {
-            recoveryTimer += Time.deltaTime;
-            if (recoveryTimer >= recoveryTime)
-            {
-                isFallen = false;
-                recoveryTimer = 0f;
-            }
-            return; // 摔倒时不能移动
-        }
-
-
-        //AddjustToGroundHeight();
-        // 检查规则类，看是否需要触发摔跤
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            OnFall(); // 触发摔跤
-        }
+        HandleAnimation();
     }
 
     void FixedUpdate()
@@ -61,62 +36,72 @@ public class PeopleMoveController : MonoBehaviour
         HandleRotation();
     }
 
+    private void HandleAnimation()
+    {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
+            Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        {
+            animator.SetTrigger("walk");
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator.SetTrigger("fall");
+        }
+    }
+
     private void HandleMovement()
     {
         Vector3 movement = Vector3.zero;
 
-        // 检测 WASD 按键
+        // 检测前后移动键（W/S），仅在有前后按键时生成移动向量
         if (Input.GetKey(KeyCode.W)) movement += transform.forward;
         if (Input.GetKey(KeyCode.S)) movement -= transform.forward;
-        if (Input.GetKey(KeyCode.A)) movement -= transform.right;
-        if (Input.GetKey(KeyCode.D)) movement += transform.right;
 
-        // 应用速度，保持恒定移动速度
-        //rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z).normalized * moveSpeed;
-        rb.AddForce(movement.normalized * moveSpeed * 0.1f , ForceMode.VelocityChange);
+        if (movement != Vector3.zero)
+        {
+            HandleStepClimb(); // 只有移动时检查台阶
+            rb.AddForce(movement.normalized * moveSpeed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        }
+        //else
+        //{
+        //    rb.velocity = new Vector3(0, rb.velocity.y, 0); // 停止水平移动
+        //}
     }
 
     private void HandleRotation()
     {
         float rotation = 0f;
+
+        // 检测旋转按键（A/D），仅用于旋转，不影响移动
         if (Input.GetKey(KeyCode.A)) rotation = -1f;
         if (Input.GetKey(KeyCode.D)) rotation = 1f;
 
-        // 应用旋转
-        transform.Rotate(0, rotation * rotationSpeed * Time.deltaTime, 0);
+        if (rotation != 0)
+        {
+            transform.Rotate(0, rotation * rotationSpeed * Time.deltaTime, 0);
+        }
     }
 
-    //void FixedUpdate()
-    //{
-        //float horizontal = Input.GetAxis("Horizontal"); //A D 左右
-        //float vertical = Input.GetAxis("Vertical"); //W S 上 下
-        //if (Input.GetKey(KeyCode.UpArrow) | Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    rb.velocity = Vector3.forward * vertical * speed;
-        //}
-        //if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    rb.velocity = Vector3.right * horizontal * speed;
-        //}
-    //}
-
-    public void OnFall()
+    private void HandleStepClimb()
     {
-        this.isFallen = true;
-        checkPointMgr.ResetToStart();
+        RaycastHit hit;
+
+        // 向前方发射射线检测台阶
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.forward, out hit, 1f))
+        {
+            // 计算台阶的高度差
+            float stepDifference = hit.point.y - transform.position.y;
+
+            // 如果在可爬升的高度内并且前方有台阶
+            if (stepDifference > 0 && stepDifference <= stepHeight)
+            {
+                // 计算目标位置
+                Vector3 targetPosition = new Vector3(transform.position.x, hit.point.y + 0.1f, transform.position.z);
+
+                // 使用 Rigidbody.MovePosition 移动
+                rb.MovePosition(targetPosition);
+            }
+        }
     }
-
-    //private void AddjustToGroundHeight()
-    //{
-
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.down, out hit, 1.5f))
-    //    {
-    //        Vector3 targetPosition = new Vector3(transform.position.x, hit.point.y, transform.position.z);
-    //        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
-
-    //    }
-    //}
-
-
 }
