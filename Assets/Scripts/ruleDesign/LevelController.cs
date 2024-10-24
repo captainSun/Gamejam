@@ -14,7 +14,7 @@ public static class LevelController
     public static Timer timer; //关卡计时器
     public static float remainTime = 0; //剩余时间
     
-    public static float maxAngleDifference = 135f; // 人和狗之间的最大角度差
+    public static float maxAngleDifference = 140f; // 人和狗之间的最大角度差
     public static float maxRopeLength = 4f; // 绳子最大长度
     
     public static float fallDuration = 2f; // 僵持时间，超过这个时间就会摔倒
@@ -198,6 +198,8 @@ public static class LevelController
         float angleDifference = Vector3.Angle(GameMgr.people.transform.forward, GameMgr.dog.transform.forward);
         // Logger.Log("两者距离==="+distance);
         // Logger.Log("角度差==="+angleDifference);
+        GameMgr.mainMenu.UpdateDataText1(distance);
+        GameMgr.mainMenu.UpdateDataText2(angleDifference);
         if (distance > maxRopeLength || angleDifference > maxAngleDifference)
         {
             curScore += 1;

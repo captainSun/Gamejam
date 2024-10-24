@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI noticeText;
+    public TextMeshProUGUI dataText1;
+    public TextMeshProUGUI dataText2;
     public GameObject PeopleRoot;
     public GameObject DogRoot;
     
@@ -31,9 +33,9 @@ public class MainMenu : MonoBehaviour
         levelText.SetText(string.Format("关卡{0}", LevelController.curLevelIndex));
     }
 
-    public void UpdateTime(float timer)
+    public void UpdateTime(float time)
     {
-        remainTimeText.text = string.Format("剩余时间：{0}", TimeUtil.FloatForTime(timer));
+        remainTimeText.text = string.Format("{0}", TimeUtil.FloatForTime(time));
     }
 
     public void UpdateScore()
@@ -41,6 +43,15 @@ public class MainMenu : MonoBehaviour
         scoreText.text = string.Format("剩余次数：{0}", curLvData.hp - LevelController.curScore);
     }
 
+    public void UpdateDataText1(float distance)
+    {
+        dataText1.text = string.Format("距离：{0:F2}", Math.Round(distance, 2));
+    }
+    
+    public void UpdateDataText2(float angle)
+    {
+        dataText2.text = string.Format("角度差：{0:F2}", Math.Round(angle, 2));
+    }
     //显示失败原因
     public void ShowStopNotice(int type)
     {
@@ -67,6 +78,8 @@ public class MainMenu : MonoBehaviour
         remainTimeText.gameObject.SetActive(flag);
         scoreText.gameObject.SetActive(flag);
         levelText.gameObject.SetActive(flag);
+        dataText1.gameObject.SetActive(flag);
+        dataText2.gameObject.SetActive(flag);
         if (flag)
         {
             noticeText.SetText("");
