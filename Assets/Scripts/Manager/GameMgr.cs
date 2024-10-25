@@ -101,41 +101,27 @@ public static class GameMgr
     }
     
     //播放摔倒过场
-    public static async void PlayFall(Action action)
+    public static void PlayFall(Action action)
     {
-        mainCamera.gameObject.SetActive(true);
         ResetGameObj();
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(2);
-        seq.AppendCallback(() =>
-        {
-            mainCamera.gameObject.SetActive(false);
-            action.Invoke();
-        });
+        var ani = ResourceMgr.CreateObj("StoryPageAni", canvas.transform);
+        ani.GetComponent<StoryPageAni>().PlayAni("be", action);
     }
     
     //播放中间过场
     public static void PlayBridge(Action action)
     {
-        mainCamera.gameObject.SetActive(true);
         ResetGameObj();
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(2);
-        seq.AppendCallback(() =>
-        {
-            mainCamera.gameObject.SetActive(false);
-            action.Invoke();
-        });
+        var ani = ResourceMgr.CreateObj("StoryPageAni", canvas.transform);
+        ani.GetComponent<StoryPageAni>().PlayAni("bridge", action);
     }
     
     //播放失败过场
     public static void PlayDefeat(Action action)
     {
-        mainCamera.gameObject.SetActive(true);
         ResetGameObj();
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(2);
-        seq.AppendCallback(() =>
+        var ani = ResourceMgr.CreateObj("StoryPageAni", canvas.transform);
+        ani.GetComponent<StoryPageAni>().PlayAni("be", () =>
         {
             ResetGame();
             action.Invoke();
@@ -145,11 +131,9 @@ public static class GameMgr
     //播放胜利过场
     public static void PlayWin(Action action)
     {
-        mainCamera.gameObject.SetActive(true);
         ResetGameObj();
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(2);
-        seq.AppendCallback(() =>
+        var ani = ResourceMgr.CreateObj("StoryPageAni", canvas.transform);
+        ani.GetComponent<StoryPageAni>().PlayAni("he", () =>
         {
             ResetGame();
             action.Invoke();

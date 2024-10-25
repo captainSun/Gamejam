@@ -29,7 +29,7 @@ public static class LevelController
     {
         triggerList.Add(GameObject.Find("trans_2").gameObject);
         triggerList.Add(GameObject.Find("trans_3_bad").gameObject);
-        triggerList.Add(GameObject.Find("trans_2").gameObject);
+        triggerList.Add(GameObject.Find("trans_4").gameObject);
     }
 
     //开始关卡
@@ -200,7 +200,8 @@ public static class LevelController
         // Logger.Log("角度差==="+angleDifference);
         GameMgr.mainMenu.UpdateDataText1(distance);
         GameMgr.mainMenu.UpdateDataText2(angleDifference);
-        if (distance > maxRopeLength || angleDifference > maxAngleDifference)
+        if (distance > maxRopeLength)
+        // if (distance > maxRopeLength || angleDifference > maxAngleDifference)
         {
             curScore += 1;
             EventMgr.SendEvent("UpdateScore");
