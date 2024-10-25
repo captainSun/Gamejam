@@ -101,7 +101,7 @@ public static class GameMgr
     }
     
     //播放摔倒过场
-    public static void PlayFall(Action action)
+    public static async void PlayFall(Action action)
     {
         mainCamera.gameObject.SetActive(true);
         ResetGameObj();

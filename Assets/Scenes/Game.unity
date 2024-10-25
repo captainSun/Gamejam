@@ -3410,6 +3410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4197629997405603057, guid: 68875d16f6e251448a2576753f4db8a5,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197629997405603057, guid: 68875d16f6e251448a2576753f4db8a5,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -4290,6 +4295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -4533,6 +4543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
@@ -12001,6 +12016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2287264392068524059, guid: 5b32bd4a722b57e4bb53df44f7e442b0,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2287264392068524059, guid: 5b32bd4a722b57e4bb53df44f7e442b0,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -12748,6 +12768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_StreetMarkings_Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896246431494127571, guid: 5bff7665ca2143245a76344f4335962f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4896246431494127571, guid: 5bff7665ca2143245a76344f4335962f,
         type: 3}
@@ -16613,6 +16638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -17177,6 +17207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Stairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907707411591034923, guid: 653543bacc0ca1248af371e7a0127183,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 653543bacc0ca1248af371e7a0127183, type: 3}
@@ -20209,6 +20244,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -22818,7 +22858,9 @@ MonoBehaviour:
   rotationSpeed: 100
   stepHeight: 0.3
   stepSmooth: 0.1
-  recoveryTime: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &186216012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28332,6 +28374,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
@@ -41462,6 +41509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
@@ -59417,52 +59469,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 527579162}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &527856462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 527856464}
-  - component: {fileID: 527856463}
-  m_Layer: 0
-  m_Name: BurstCollisionWorld
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &527856463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527856462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellSpans:
-    m_AlignBytes: 16
---- !u!4 &527856464
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527856462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &528327610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78182,6 +78188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -80328,6 +80339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1494354280130625988, guid: 5eba152dbdd42a5468b494bce2c6e275,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494354280130625988, guid: 5eba152dbdd42a5468b494bce2c6e275,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -81999,6 +82015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -83266,6 +83287,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_StreetMarkings_Line
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167236293160114280, guid: db0d26d2ec530f7489c3962829c7b2b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7167236293160114280, guid: db0d26d2ec530f7489c3962829c7b2b8,
         type: 3}
@@ -96145,6 +96171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -101816,6 +101847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 724636808900420648, guid: 8fcbefd898e34de41a4edadf272bdb7d,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 724636808900420648, guid: 8fcbefd898e34de41a4edadf272bdb7d,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -102523,6 +102559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_StreetMarkings_Line2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197629997405603057, guid: 68875d16f6e251448a2576753f4db8a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4197629997405603057, guid: 68875d16f6e251448a2576753f4db8a5,
         type: 3}
@@ -113499,6 +113540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -117452,6 +117498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
@@ -121574,6 +121625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_StairsXL
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966837731008865381, guid: 583cba686ff972d478a31f0dbf269ece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7966837731008865381, guid: 583cba686ff972d478a31f0dbf269ece,
         type: 3}
@@ -127433,6 +127489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -132885,6 +132946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -136871,7 +136937,12 @@ PrefabInstance:
     - target: {fileID: 7966837731008865381, guid: 583cba686ff972d478a31f0dbf269ece,
         type: 3}
       propertyPath: m_Name
-      value: SM_StairsXL
+      value: xl
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966837731008865381, guid: 583cba686ff972d478a31f0dbf269ece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7966837731008865381, guid: 583cba686ff972d478a31f0dbf269ece,
         type: 3}
@@ -138247,6 +138318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Stairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907707411591034923, guid: 653543bacc0ca1248af371e7a0127183,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 653543bacc0ca1248af371e7a0127183, type: 3}
@@ -141897,6 +141973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4197629997405603057, guid: 68875d16f6e251448a2576753f4db8a5,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197629997405603057, guid: 68875d16f6e251448a2576753f4db8a5,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -143448,6 +143529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail2
+      objectReference: {fileID: 0}
+    - target: {fileID: 724636808900420648, guid: 8fcbefd898e34de41a4edadf272bdb7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 724636808900420648, guid: 8fcbefd898e34de41a4edadf272bdb7d,
         type: 3}
@@ -146768,6 +146854,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -148713,6 +148804,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_StreetMarkings_Writing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494354280130625988, guid: 5eba152dbdd42a5468b494bce2c6e275,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1494354280130625988, guid: 5eba152dbdd42a5468b494bce2c6e275,
         type: 3}
@@ -157696,6 +157792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -161001,6 +161102,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1434258591}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1434541033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1434541035}
+  - component: {fileID: 1434541034}
+  m_Layer: 0
+  m_Name: BurstCollisionWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1434541034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434541033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellSpans:
+    m_AlignBytes: 16
+--- !u!4 &1434541035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434541033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1436425358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170923,6 +171070,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -172580,6 +172732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
@@ -175047,6 +175204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail2
+      objectReference: {fileID: 0}
+    - target: {fileID: 724636808900420648, guid: 8fcbefd898e34de41a4edadf272bdb7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 724636808900420648, guid: 8fcbefd898e34de41a4edadf272bdb7d,
         type: 3}
@@ -183149,6 +183311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -186470,6 +186637,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -187588,6 +187760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
@@ -211197,13 +211374,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1509154552721023650, guid: d397ac7d636bd5c4fbe79eabd0f99700,
         type: 3}
+      propertyPath: m_Height
+      value: 1.8946671
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509154552721023650, guid: d397ac7d636bd5c4fbe79eabd0f99700,
+        type: 3}
       propertyPath: m_Radius
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1509154552721023650, guid: d397ac7d636bd5c4fbe79eabd0f99700,
         type: 3}
       propertyPath: m_Center.y
-      value: 1.1
+      value: 1.1526663
       objectReference: {fileID: 0}
     - target: {fileID: 1509154552721023651, guid: d397ac7d636bd5c4fbe79eabd0f99700,
         type: 3}
@@ -211223,17 +211405,22 @@ PrefabInstance:
     - target: {fileID: 1509154552721023676, guid: d397ac7d636bd5c4fbe79eabd0f99700,
         type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1509154552721023676, guid: d397ac7d636bd5c4fbe79eabd0f99700,
         type: 3}
       propertyPath: stepHeight
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1509154552721023676, guid: d397ac7d636bd5c4fbe79eabd0f99700,
         type: 3}
       propertyPath: rotationSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509154552721023676, guid: d397ac7d636bd5c4fbe79eabd0f99700,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 1509154552721023679, guid: d397ac7d636bd5c4fbe79eabd0f99700,
         type: 3}
@@ -228626,7 +228813,7 @@ PrefabInstance:
     - target: {fileID: 7805278238305586415, guid: a3c03350073491643a17f2596472e46c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.110033
+      value: 13.117
       objectReference: {fileID: 0}
     - target: {fileID: 7805278238305586415, guid: a3c03350073491643a17f2596472e46c,
         type: 3}
@@ -228636,7 +228823,7 @@ PrefabInstance:
     - target: {fileID: 7805278238305586415, guid: a3c03350073491643a17f2596472e46c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.190037
+      value: -20.194
       objectReference: {fileID: 0}
     - target: {fileID: 7805278238305586415, guid: a3c03350073491643a17f2596472e46c,
         type: 3}
@@ -235652,6 +235839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -236772,6 +236964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167236293160114280, guid: db0d26d2ec530f7489c3962829c7b2b8,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167236293160114280, guid: db0d26d2ec530f7489c3962829c7b2b8,
+        type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -237330,6 +237527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_TramRail
+      objectReference: {fileID: 0}
+    - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 934055731357632010, guid: f263e66f10dd0fc46b550b9e9cef4a9a,
         type: 3}

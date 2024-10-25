@@ -7,101 +7,116 @@ using UnityEngine;
 /// </summary>
 public class PeopleMoveController : MonoBehaviour
 {
-    public float moveSpeed = 2f;           // 移动速度
+    public float moveSpeed = 5f;           // 移动速度
     public float rotationSpeed = 100f;     // 旋转速度
     public float stepHeight = 0.3f;        // 可跨越的台阶高度
-    public float stepSmooth = 0.1f;        // 平滑爬台阶速度
-    public float recoveryTime = 2f;        // 摔倒后的恢复时间
+    public float stepSmooth = 0.1f;        // 爬台阶的平滑系数
+    public LayerMask groundLayer;          // 检测地面或楼梯的图层
 
     private Rigidbody rb;
     private Animator animator;
+    private Vector3 movementInput;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = false;
-        rb.freezeRotation = true; // 防止刚体自动旋转
-        rb.useGravity = true;
+        rb.freezeRotation = true;          // 防止角色旋转
         animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
-        HandleAnimation();
+        GetInput();        // 获取输入
+        HandleAnimation(); // 控制动画
     }
 
     void FixedUpdate()
     {
-        HandleMovement();
-        HandleRotation();
+        HandleRotation();  // 控制旋转
+        MoveCharacter();   // 控制移动
+        HandleStepClimb(); // 爬台阶检测
     }
 
+    /// <summary>
+    /// 获取键盘输入
+    /// </summary>
+    private void GetInput()
+    {
+        movementInput = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W)) movementInput += transform.forward;
+        if (Input.GetKey(KeyCode.S)) movementInput -= transform.forward;
+    }
+
+    /// <summary>
+    /// 控制动画播放
+    /// </summary>
     private void HandleAnimation()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
-            Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            animator.SetTrigger("walk");
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            animator.SetTrigger("fall");
-        }
+        bool isWalking = movementInput != Vector3.zero;
+        animator.SetTrigger("walk");
     }
 
-    private void HandleMovement()
+    /// <summary>
+    /// 使用 Rigidbody.velocity 移动角色
+    /// </summary>
+    private void MoveCharacter()
     {
-        Vector3 movement = Vector3.zero;
-
-        // 检测前后移动键（W/S），仅在有前后按键时生成移动向量
-        if (Input.GetKey(KeyCode.W)) movement += transform.forward;
-        if (Input.GetKey(KeyCode.S)) movement -= transform.forward;
-
-        if (movement != Vector3.zero)
-        {
-            HandleStepClimb(); // 只有移动时检查台阶
-            rb.AddForce(movement.normalized * moveSpeed * Time.fixedDeltaTime, ForceMode.VelocityChange);
-        }
-        //else
-        //{
-        //    rb.velocity = new Vector3(0, rb.velocity.y, 0); // 停止水平移动
-        //}
+        Vector3 velocity = movementInput * moveSpeed;
+        velocity.y = rb.velocity.y; // 保留垂直方向上的速度（如重力作用）
+        rb.velocity = velocity;
     }
 
+    /// <summary>
+    /// 控制角色旋转
+    /// </summary>
     private void HandleRotation()
     {
-        float rotation = 0f;
-
-        // 检测旋转按键（A/D），仅用于旋转，不影响移动
-        if (Input.GetKey(KeyCode.A)) rotation = -1f;
-        if (Input.GetKey(KeyCode.D)) rotation = 1f;
-
-        if (rotation != 0)
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0, rotation * rotationSpeed * Time.deltaTime, 0);
+            // 只在有按键时进行旋转
+            float rotationDirection = 0f;
+
+            if (Input.GetKey(KeyCode.A)) rotationDirection = -1f; // 左旋转
+            if (Input.GetKey(KeyCode.D)) rotationDirection = 1f;  // 右旋转
+
+            // 计算目标旋转
+            Quaternion targetRotation = Quaternion.Euler(0, rotationDirection * rotationSpeed * Time.deltaTime, 0);
+            transform.rotation *= targetRotation; // 旋转角色
         }
     }
 
+    /// <summary>
+    /// 处理爬台阶逻辑
+    /// </summary>
     private void HandleStepClimb()
     {
         RaycastHit hit;
+        Vector3 rayStart = transform.position + Vector3.up * 0.7f; // 增加检测高度
 
-        // 向前方发射射线检测台阶
-        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.forward, out hit, 1f))
+        // 检测前方台阶
+        if (Physics.Raycast(rayStart, transform.forward, out hit, 1f, groundLayer))
         {
-            // 计算台阶的高度差
             float stepDifference = hit.point.y - transform.position.y;
 
-            // 如果在可爬升的高度内并且前方有台阶
+            // 仅当台阶高度在允许范围内时，才改变位置
             if (stepDifference > 0 && stepDifference <= stepHeight)
             {
-                // 计算目标位置
-                Vector3 targetPosition = new Vector3(transform.position.x, hit.point.y + 0.1f, transform.position.z);
-
-                // 使用 Rigidbody.MovePosition 移动
-                rb.MovePosition(targetPosition);
+                Vector3 targetPosition = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+                rb.MovePosition(Vector3.Lerp(transform.position, targetPosition, stepSmooth)); // 平滑移动
+                return; // 直接返回，避免后续重力处理影响
             }
+        }
+
+        // 检测下方地面，避免踩空气
+        if (Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, out hit, 1f, groundLayer))
+        {
+            rb.useGravity = false; // 有地面，禁用重力
+            rb.MovePosition(new Vector3(transform.position.x, hit.point.y, transform.position.z)); // 确保与地面对齐
+        }
+        else
+        {
+            rb.useGravity = true; // 没有地面，启用重力
         }
     }
 }

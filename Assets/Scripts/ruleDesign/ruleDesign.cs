@@ -53,7 +53,7 @@ public class FallDetector : MonoBehaviour
                 }
                 else if (Time.time - fallStartTime >= fallDuration)
                 {
-                    OnFall();
+                     OnFall();
                 }
             }
             else
