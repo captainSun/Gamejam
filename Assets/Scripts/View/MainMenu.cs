@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI dataText2;
     public GameObject PeopleRoot;
     public GameObject DogRoot;
+    public GameObject fillDis;
+    private Image fillDisAmout;    
+    public GameObject fillAng;
+    private Image fillAngAmout;
     
     private LevelData curLvData;
     private Timer timer;
@@ -22,6 +27,8 @@ public class MainMenu : MonoBehaviour
         noticeText.SetText("");
         //事件监听
         EventMgr.AddEvent("UpdateScore", UpdateScore, "MainMenu");
+        fillDisAmout = fillDis.GetComponent<Image>();
+        fillAngAmout = fillAng.GetComponent<Image>();
     }
     
     public void StartLevel(LevelData data)
@@ -43,14 +50,16 @@ public class MainMenu : MonoBehaviour
         scoreText.text = string.Format("剩余次数：{0}", curLvData.hp - LevelController.curScore);
     }
 
-    public void UpdateDataText1(float distance)
+    public void UpdateDataText1(float distance,float maxDis)
     {
-        dataText1.text = string.Format("距离：{0:F2}", Math.Round(distance, 2));
+        //dataText1.text = string.Format("距离：{0:F2}", Math.Round(distance, 2));
+        fillDisAmout.fillAmount = distance / maxDis;
     }
     
-    public void UpdateDataText2(float angle)
+    public void UpdateDataText2(float angle,float maxAngle)
     {
-        dataText2.text = string.Format("角度差：{0:F2}", Math.Round(angle, 2));
+        //dataText2.text = string.Format("角度差：{0:F2}", Math.Round(angle, 2));
+        fillAngAmout.fillAmount = angle / maxAngle;
     }
     //显示失败原因
     public void ShowStopNotice(int type)

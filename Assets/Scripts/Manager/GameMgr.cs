@@ -10,7 +10,7 @@ using Sequence = DG.Tweening.Sequence;
 /// </summary>
 public static class GameMgr
 {
-    private static bool inEditor = true;
+    private static bool inEditor = false;
     
     public static GameObject Environment; //相关设置根节点
     public static GameObject people; //人

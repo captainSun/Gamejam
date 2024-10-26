@@ -100,13 +100,13 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.65
+    m_Value: 0.6
   smoothness:
     m_OverrideState: 1
     m_Value: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
     m_Value: 1
   focalLength:
     m_OverrideState: 1
-    m_Value: 120
+    m_Value: 130
   bladeCount:
     m_OverrideState: 1
     m_Value: 5
