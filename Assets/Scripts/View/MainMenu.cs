@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     private Image fillDisAmout;    
     public GameObject fillAng;
     private Image fillAngAmout;
-    
+    public GameObject Tips;
     private LevelData curLvData;
     private Timer timer;
     void Start()
@@ -29,8 +29,15 @@ public class MainMenu : MonoBehaviour
         EventMgr.AddEvent("UpdateScore", UpdateScore, "MainMenu");
         fillDisAmout = fillDis.GetComponent<Image>();
         fillAngAmout = fillAng.GetComponent<Image>();
+        Button btn = Tips.GetComponent<Button>();
+        btn.onClick.AddListener(OnTipsClicked);
     }
     
+    void OnTipsClicked()
+    {
+        Tips.SetActive(false);
+    }
+
     public void StartLevel(LevelData data)
     {
         ActiveInfo(true);
