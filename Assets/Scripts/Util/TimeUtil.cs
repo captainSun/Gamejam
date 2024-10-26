@@ -68,7 +68,8 @@ public static class TimeUtil
         seconds = seconds % 3600 % 60;
         
         //打印00:00:00时间格式
-        return string.Format("{0:D2}:{1:D2}:{2:D2}", hour, minute, seconds);
+        //return string.Format("{0:D2}:{1:D2}:{2:D2}", hour, minute, seconds);
+        return string.Format("{0:D2}:{1:D2}",minute ,seconds);
     }
 
     //

@@ -16,5 +16,5 @@ MonoBehaviour:
   peopleStartRot: {x: 0, y: 0, z: 0}
   dogStartPos: {x: -9.5, y: 3, z: -3}
   dogStartRot: {x: 0, y: 0, z: 0}
-  timeLimit: 60
+  timeLimit: 120
   hp: 3

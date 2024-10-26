@@ -198,8 +198,8 @@ public static class LevelController
         float angleDifference = Vector3.Angle(GameMgr.people.transform.forward, GameMgr.dog.transform.forward);
         // Logger.Log("两者距离==="+distance);
         // Logger.Log("角度差==="+angleDifference);
-        GameMgr.mainMenu.UpdateDataText1(distance);
-        GameMgr.mainMenu.UpdateDataText2(angleDifference);
+        GameMgr.mainMenu.UpdateDataText1(distance, maxRopeLength);
+        GameMgr.mainMenu.UpdateDataText2(angleDifference,maxAngleDifference);
         if (distance > maxRopeLength)
         // if (distance > maxRopeLength || angleDifference > maxAngleDifference)
         {
