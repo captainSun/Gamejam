@@ -228,6 +228,9 @@ MonoBehaviour:
   _image: {fileID: 7837967951350039941}
   _cg: {fileID: 4583263841053315543}
   _button: {fileID: 558728416260509161}
+  UIPrefab: {fileID: 3025853662820987055, guid: 25f9fe19dd26f01429c527e94560c286,
+    type: 3}
+  parentTrans: {fileID: 4277797014598624605}
 --- !u!1 &8250183184660426615
 GameObject:
   m_ObjectHideFlags: 0
