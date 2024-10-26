@@ -105,7 +105,7 @@ public static class GameMgr
     {
         ResetGameObj();
         var ani = ResourceMgr.CreateObj("StoryPageAni", canvas.transform);
-        ani.GetComponent<StoryPageAni>().PlayAni("be", action);
+        ani.GetComponent<StoryPageAni>().PlayAni("fall", action);
     }
     
     //播放中间过场

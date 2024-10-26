@@ -21,6 +21,7 @@ public class StoryPageAni : MonoBehaviour
         storyTexDic.Add("bridge", new string[]{"bridge"});
         storyTexDic.Add("be", new string[]{"be_1"});
         storyTexDic.Add("he", new string[]{"he_1","he_2"});
+        storyTexDic.Add("fall", new string[]{"fall"});
     }
 
     void Start()
