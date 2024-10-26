@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
         ActiveInfo(true);
         
         curLvData = data;
-        scoreText.SetText(string.Format("剩余次数：{0}", curLvData.hp));
+        scoreText.SetText(string.Format("{0}", curLvData.hp));
         levelText.SetText(string.Format("关卡{0}", LevelController.curLevelIndex));
     }
 
@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
 
     public void UpdateScore()
     {
-        scoreText.text = string.Format("剩余次数：{0}", curLvData.hp - LevelController.curScore);
+        scoreText.text = string.Format("{0}", curLvData.hp - LevelController.curScore);
     }
 
     public void UpdateDataText1(float distance,float maxDis)
