@@ -8,6 +8,11 @@ using UnityEngine;
 /// </summary>
 public class StartUp : MonoBehaviour
 {
+    void Awake()
+    {
+        Screen.SetResolution(1366, 768, false);
+    }
+    
     void Start()
     {
         TimeUtil.Initialize();
