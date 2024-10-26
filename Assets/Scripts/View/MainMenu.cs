@@ -66,18 +66,18 @@ public class MainMenu : MonoBehaviour
     {
         ActiveInfo(false);
         
-        if (type == 1)
-        {
-            noticeText.SetText("没有时间了！");
-        }
-        else if (type == 2)
-        {
-            noticeText.SetText("体力用尽了！");
-        }
-        else if (type == 3)
-        {
-            noticeText.SetText("摔倒了！");
-        }
+        // if (type == 1)
+        // {
+        //     noticeText.SetText("没有时间了！");
+        // }
+        // else if (type == 2)
+        // {
+        //     noticeText.SetText("体力用尽了！");
+        // }
+        // else if (type == 3)
+        // {
+        //     noticeText.SetText("摔倒了！");
+        // }
     }
 
     public void ActiveInfo(bool flag)

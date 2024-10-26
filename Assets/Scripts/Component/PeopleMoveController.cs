@@ -54,7 +54,15 @@ public class PeopleMoveController : MonoBehaviour
     private void HandleAnimation()
     {
         bool isWalking = movementInput != Vector3.zero;
-        animator.SetTrigger("walk");
+        if (isWalking)
+        {
+            animator.SetTrigger("walk");
+        }
+        else
+        {
+            animator.Play("Idle");
+        }
+        
     }
 
     /// <summary>

@@ -48,12 +48,12 @@ public class StoryPageAni : MonoBehaviour
         {
             //²¥·ÅÍê±Ï
             var seq = DOTween.Sequence();
-            seq.Append(_cg.DOFade(0, 0.25f));
+            seq.Append(_cg.DOFade(0, 0.2f));
             seq.AppendCallback(() =>
             {
                 Destroy(gameObject);
-                _endAction.Invoke();
             });
+            _endAction.Invoke();
         }
         else
         {
