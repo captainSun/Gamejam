@@ -15,7 +15,9 @@ public class StoryPageAni : MonoBehaviour
     private string curKey = "";
     private Action _endAction;
     private string[] pathList;
-
+    public GameObject UIPrefab;
+    public Transform parentTrans;
+    private GameObject be_1;
     void Awake()
     {
         storyTexDic.Add("bridge", new string[]{"bridge"});
@@ -64,6 +66,14 @@ public class StoryPageAni : MonoBehaviour
             if (path == "he_1")
             {
                 _image.transform.localScale = Vector3.one * 0.75f;
+            }
+            else if (path == "be_1")
+            {
+                this.be_1 = Instantiate(UIPrefab,parentTrans);
+                Button b = this.be_1.GetComponent<Button>();
+                b.onClick.AddListener(() => {
+                    Destroy(this.be_1);
+                });
             }
             else
             {

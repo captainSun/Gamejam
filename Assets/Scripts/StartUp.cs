@@ -15,6 +15,7 @@ public class StartUp : MonoBehaviour
     
     void Start()
     {
+        Screen.fullScreen = true;
         TimeUtil.Initialize();
         GameMgr.Initialize();
         LevelController.Initialize();
