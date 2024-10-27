@@ -14,7 +14,7 @@ public static class LevelController
     public static Timer timer; //关卡计时器
     public static float remainTime = 0; //剩余时间
     
-    public static float maxAngleDifference = 140f; // 人和狗之间的最大角度差
+    public static float maxAngleDifference = 180f; // 人和狗之间的最大角度差
     public static float maxRopeLength = 4f; // 绳子最大长度
     
     public static float fallDuration = 2f; // 僵持时间，超过这个时间就会摔倒
@@ -78,7 +78,7 @@ public static class LevelController
         {
             timer = null;
             //倒计时结束
-            StopLevel(false);
+            StopLevel(false, "be_time_end");
             GameMgr.mainMenu.ShowStopNotice(1);
         }
        
@@ -101,7 +101,7 @@ public static class LevelController
     }
 
     //关卡结束
-    public static void StopLevel(bool isWin)
+    public static void StopLevel(bool isWin, string reason)
     {
         StopControl();
         remainTime = 0;
@@ -123,7 +123,7 @@ public static class LevelController
             GameMgr.PlayDefeat(() =>
             {
                
-            });
+            }, reason);
         }
     }
 
@@ -176,12 +176,12 @@ public static class LevelController
         else if(endPoint.transform.parent.name == "trans_3_bad") 
         {
             //到达坏结局
-            StopLevel(false);
+            StopLevel(false, "be");
         }
         else if (endPoint.transform.parent.name == "trans_4")
         {
             //到达好结局
-            StopLevel(true);
+            StopLevel(true, "he");
         }
     }
 
@@ -209,7 +209,7 @@ public static class LevelController
             {
                 Logger.Log("StopLevel 次数用尽");
                 //次数用尽
-                StopLevel(false);
+                StopLevel(false, "be_life_end");
                 GameMgr.mainMenu.ShowStopNotice(2);
             }
             else

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,12 +60,20 @@ public class MainMenu : MonoBehaviour
 
     public void UpdateDataText1(float distance,float maxDis)
     {
+        if (fillDisAmout == null)
+        {
+            return;
+        }
         //dataText1.text = string.Format("距离：{0:F2}", Math.Round(distance, 2));
         fillDisAmout.fillAmount = distance / maxDis;
     }
     
     public void UpdateDataText2(float angle,float maxAngle)
     {
+        if (fillAngAmout == null)
+        {
+            return;
+        }
         //dataText2.text = string.Format("角度差：{0:F2}", Math.Round(angle, 2));
         fillAngAmout.fillAmount = angle / maxAngle;
     }
@@ -72,7 +81,6 @@ public class MainMenu : MonoBehaviour
     public void ShowStopNotice(int type)
     {
         ActiveInfo(false);
-        
         // if (type == 1)
         // {
         //     noticeText.SetText("没有时间了！");
@@ -83,7 +91,7 @@ public class MainMenu : MonoBehaviour
         // }
         // else if (type == 3)
         // {
-        //     noticeText.SetText("摔倒了！");
+        //     noticeText.SetText("");
         // }
     }
 

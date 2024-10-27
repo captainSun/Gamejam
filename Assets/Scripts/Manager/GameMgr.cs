@@ -10,8 +10,9 @@ using Sequence = DG.Tweening.Sequence;
 /// </summary>
 public static class GameMgr
 {
-    private static bool inEditor = false;
+    // private static bool inEditor = true;
     
+    public static bool firstRound = true; //是否是第一轮游戏 用于判断动画是否播放
     public static GameObject Environment; //相关设置根节点
     public static GameObject people; //人
     public static GameObject dog; //狗
@@ -70,6 +71,7 @@ public static class GameMgr
         mainCamera.gameObject.SetActive(true);
         ResourceMgr.DestroyObj(mainMenu.gameObject);
         LoadLoginPanel();
+        firstRound = false;
     }
 
     //开关移动组件
@@ -89,7 +91,7 @@ public static class GameMgr
     //播放开场动画
     public static void PlayOpen()
     {
-        if (inEditor)
+        if (firstRound == false)
         {
             StartGame();
         }
@@ -117,11 +119,11 @@ public static class GameMgr
     }
     
     //播放失败过场
-    public static void PlayDefeat(Action action)
+    public static void PlayDefeat(Action action, string reason)
     {
         ResetGameObj();
         var ani = ResourceMgr.CreateObj("StoryPageAni", canvas.transform);
-        ani.GetComponent<StoryPageAni>().PlayAni("be", () =>
+        ani.GetComponent<StoryPageAni>().PlayAni(reason, () =>
         {
             ResetGame();
             action.Invoke();
