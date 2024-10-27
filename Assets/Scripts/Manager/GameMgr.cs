@@ -21,6 +21,7 @@ public static class GameMgr
     public static Canvas canvas; //canvas
     public static Volume globalVolume; //volume组件
     public static Camera mainCamera;
+    public static GameObject dialogueUGUI;
 
     private static GameObject openPageAni;
   
@@ -30,6 +31,7 @@ public static class GameMgr
     {
         Environment = GameObject.Find("Environment");
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        dialogueUGUI = GameObject.Find("@DialogueUGUI");
         globalVolume = Environment.transform.Find("GlobalVolume").GetComponent<Volume>();
         people = GameObject.FindGameObjectWithTag("People");
         dog = GameObject.FindGameObjectWithTag("Dog");
@@ -80,12 +82,14 @@ public static class GameMgr
         people.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         people.GetComponent<PeopleMoveController>().enabled = flag;
         dog.GetComponent<POLYGON_DogAnimationController>().enabled = flag;
+        dialogueUGUI.SetActive(true);
     }
     
     public static void ResetGameObj()
     {
         SetMoveControl(false);
         people.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        dialogueUGUI.SetActive(false);
     }
     
     //播放开场动画
