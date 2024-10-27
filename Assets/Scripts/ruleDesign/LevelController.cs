@@ -109,7 +109,6 @@ public static class LevelController
         ActiveTrigger(false);
         if (isWin)
         {
-            Logger.Log("StopLevel 胜利");
             //胜利
             GameMgr.PlayWin(() =>
             {
@@ -118,7 +117,6 @@ public static class LevelController
         }
         else
         {
-            Logger.Log("StopLevel 失败");
             //失败
             GameMgr.PlayDefeat(() =>
             {
@@ -166,7 +164,6 @@ public static class LevelController
         GameMgr.mainMenu.ActiveInfo(false);
         if (endPoint.transform.parent.name == "trans_2")
         {
-            Logger.Log("StopLevel 到达第一关");
             //到达第一关
             GameMgr.PlayBridge(() =>
             {
