@@ -10,7 +10,7 @@ public class StartUp : MonoBehaviour
 {
     void Awake()
     {
-        Screen.SetResolution(1366, 768, false);
+        Screen.SetResolution(1366, 768, true);
     }
     
     void Start()

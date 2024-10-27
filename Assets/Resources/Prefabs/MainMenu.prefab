@@ -664,6 +664,7 @@ MonoBehaviour:
   fillDis: {fileID: 5733159376422045772}
   fillAng: {fileID: 2066653290431196429}
   Tips: {fileID: 2392240504246853022}
+  blackBg: {fileID: 645487806909743993}
 --- !u!1 &2392240504246853022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,12 +2173,12 @@ GameObject:
   - component: {fileID: 7112439442236607855}
   - component: {fileID: 7634867037143929106}
   m_Layer: 5
-  m_Name: balckBg
+  m_Name: blackBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &645487806909743993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2193,8 +2194,8 @@ RectTransform:
   m_Father: {fileID: 5615767582897962630}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     public GameObject fillAng;
     private Image fillAngAmout;
     public GameObject Tips;
+    public RectTransform blackBg;
     private LevelData curLvData;
     private Timer timer;
     void Start()
@@ -32,6 +33,11 @@ public class MainMenu : MonoBehaviour
         fillAngAmout = fillAng.GetComponent<Image>();
         Button btn = Tips.GetComponent<Button>();
         btn.onClick.AddListener(OnTipsClicked);
+        RectTransform mask = transform.Find("blackBg").GetComponent<RectTransform>();
+        var width = Screen.width / 2;
+        var height = Screen.height;
+        mask.sizeDelta = new Vector2(width, height);
+        mask.anchoredPosition = new Vector2((float)width/2, 0);
     }
     
     void OnTipsClicked()
